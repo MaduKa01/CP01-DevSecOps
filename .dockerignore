@@ -1,0 +1,9 @@
+.git
+reports
+evidencias
+docs
+slides
+work
+__pycache__
+.env
+

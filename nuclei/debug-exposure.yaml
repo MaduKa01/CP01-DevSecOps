@@ -1,0 +1,27 @@
+id: cp01-debug-exposure
+info:
+  name: CP01 - Local lab internal configuration exposure
+  author: cp01-grupo2
+  severity: medium
+  description: Detecta o endpoint didático que expõe configuração interna fictícia.
+  reference:
+    - https://cwe.mitre.org/data/definitions/497.html
+  classification:
+    cwe-id: CWE-497
+  tags: lab,exposure,cp01
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/debug"
+    redirects: false
+    matchers-condition: and
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        condition: and
+        words:
+          - '"lab_marker": "cp01-debug-exposure"'
+          - '"internal_config"'
+

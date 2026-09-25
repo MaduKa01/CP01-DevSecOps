@@ -1,0 +1,114 @@
+name: cp01-devsecops
+
+x-app: &app
+  read_only: true
+  tmpfs:
+    - /tmp:size=16m,noexec,nosuid
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 64
+  mem_limit: 256m
+  cpus: 0.5
+  networks: [lab]
+
+services:
+  trivy:
+    image: aquasec/trivy:0.74.0@sha256:62b1e65e8869bc4b4c6aa4fa2b21595256c7c2f6018a9d9ad61caf87187c1969
+    profiles: [tools]
+    volumes:
+      - ./fixtures:/workspace:ro
+      - ./reports:/reports
+      - trivy-cache:/root/.cache/trivy
+    command: [--version]
+
+  kics:
+    image: checkmarx/kics:v2.1.20@sha256:3e5a268eb8adda2e5a483c9359ddfc4cd520ab856a7076dc0b1d8784a37e2602
+    profiles: [tools]
+    volumes:
+      - ./fixtures:/workspace:ro
+      - ./reports:/reports
+    environment:
+      DISABLE_CRASH_REPORT: "0"
+    command: [version]
+
+  app-vulneravel:
+    <<: *app
+    profiles: [demo]
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+      args:
+        VARIANT: vulneravel
+    image: cp01-devsecops-app:vulneravel
+    environment:
+      LAB_MODE: vulneravel
+
+  app-corrigido:
+    <<: *app
+    profiles: [demo]
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+      args:
+        VARIANT: corrigido
+    image: cp01-devsecops-app:corrigido
+    environment:
+      LAB_MODE: corrigido
+
+  nuclei:
+    image: projectdiscovery/nuclei:v3.11.1@sha256:582d5546902e67052097cb2d07296c642d50a1afc5e44623cb038845df9a32eb
+    profiles: [tools]
+    networks: [lab]
+    volumes:
+      - ./nuclei:/templates:ro
+      - ./nuclei/.nuclei-ignore:/root/.config/nuclei/.nuclei-ignore:ro
+      - ./reports:/reports
+    command: [-version]
+
+  verify:
+    image: python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9
+    profiles: [tools]
+    network_mode: none
+    working_dir: /project
+    volumes:
+      - ./scripts:/project/scripts:ro
+      - ./reports:/project/reports
+    command: [python, scripts/verify_reports.py]
+
+  sonarqube:
+    image: sonarqube:26.9.0.129388-community@sha256:58b068af30bdfdccf91222de36e310529033e853dfae221b429cba80d10d5751
+    profiles: [sonar]
+    ports: ["127.0.0.1:19000:9000"]
+    networks: [sonar]
+    mem_limit: 3g
+    environment:
+      SONAR_TELEMETRY_ENABLE: "false"
+    volumes:
+      - sonar-data:/opt/sonarqube/data
+      - sonar-extensions:/opt/sonarqube/extensions
+      - sonar-logs:/opt/sonarqube/logs
+
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli:12.2.0.4256_8.1.0@sha256:a3f4215076706c95a17a68c19322ee916e40a3acd081a8c1a1e839e0194afa57
+    platform: linux/amd64
+    profiles: [sonar]
+    networks: [sonar]
+    environment:
+      SONAR_HOST_URL: http://sonarqube:9000
+      SONAR_TOKEN: ${SONAR_TOKEN:-}
+    volumes:
+      - ./:/usr/src:ro
+      - sonar-scanner-cache:/opt/sonar-scanner/.sonar/cache
+
+networks:
+  lab:
+    internal: true
+  sonar:
+    driver: bridge
+
+volumes:
+  trivy-cache:
+  sonar-data:
+  sonar-extensions:
+  sonar-logs:
+  sonar-scanner-cache:

@@ -1,0 +1,51 @@
+# Fixture para análise estática. NÃO aplicar em cluster.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cp01-demo
+  labels:
+    app: cp01-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cp01-demo
+  template:
+    metadata:
+      labels:
+        app: cp01-demo
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: app
+          image: cp01-devsecops/app:lab-v1
+          ports:
+            - containerPort: 8080
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+

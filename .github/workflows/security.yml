@@ -1,0 +1,42 @@
+name: Security gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      variant:
+        description: Cenário didático (vulneravel deve falhar; corrigido deve passar)
+        required: true
+        default: corrigido
+        type: choice
+        options: [vulneravel, corrigido]
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      LAB_VARIANT: ${{ inputs.variant || 'corrigido' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validar Compose
+        run: docker compose config --quiet
+      - name: Preparar scanners
+        run: docker compose pull trivy kics
+      - name: Executar SCA e IaC com gate HIGH/CRITICAL
+        run: python3 scripts/run_scan.py "$LAB_VARIANT"
+      - name: Preservar relatórios mesmo se o gate bloquear
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: security-${{ env.LAB_VARIANT }}-${{ github.run_id }}
+          path: reports/
+          if-no-files-found: error
+          retention-days: 30
+
