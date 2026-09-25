@@ -28,19 +28,63 @@ depois da preparação dos downloads.
 | Autoria Git de Kauê configurada | OK |
 | `docker compose config --quiet` | OK, código 0 |
 | Cliente Docker e plugin Compose instalados | OK |
-| Docker Engine acessível | Pendente |
-| WSL 2 pronto para iniciar containers | Pendente |
+| Docker Engine acessível | OK, Server 29.8.0 |
+| WSL 2 pronto para iniciar containers | OK |
 
 A máquina ainda não tinha Docker Desktop nem WSL. Esses itens são pré-requisitos
 declarados pelo `LAB.md`, portanto o tempo de instalação não entra na medição dos
 12 minutos. O Windows solicitou reinicialização após habilitar o WSL. Como havia
-uma chamada em andamento, a reinicialização foi adiada.
+uma chamada em andamento, a reinicialização foi adiada e realizada depois.
 
 Antes da reinicialização, o Compose conseguiu validar a sintaxe do projeto, mas o
 Docker Engine ainda não estava em execução. O `wsl --status` também informou que a
 Plataforma da Máquina Virtual/virtualização precisava ser ativada. Esse ponto será
 reavaliado depois da reinicialização antes de concluir se é necessário ajuste no
-firmware.
+firmware. Depois da reinicialização, o WSL 2 e a distribuição interna
+`docker-desktop` iniciaram corretamente, sem necessidade de alteração no firmware.
+
+## Execução real do LAB.md
+
+A preparação ficou fora do cronômetro, conforme o roteiro:
+
+- download das imagens Trivy, KICS e verify: 15,308 segundos;
+- download da base do Trivy, com aproximadamente 117 MiB: 23,589 segundos;
+- `docker compose config --quiet`: código 0.
+
+O fluxo cronometrado, desde a conferência das versões até a geração do comprovante,
+levou 1 minuto e 58,404 segundos. Esse é o tempo de execução automatizada e não
+inclui o tempo de um apresentador explicar os achados. Mesmo assim, demonstra margem
+operacional para o limite de 12 minutos.
+
+Resultados observados nesta máquina:
+
+| Etapa | Resultado |
+|---|---|
+| Trivy vulnerável | 3 MEDIUM em Jinja2 3.1.4 |
+| Correção da CVE-2025-27516 | Jinja2 3.1.6 |
+| KICS vulnerável | 2 HIGH, 1 MEDIUM e 6 LOW; código 50 esperado |
+| Trivy corrigido | 0 vulnerabilidades nas dependências declaradas |
+| KICS corrigido | 0 HIGH/CRITICAL, 1 MEDIUM e 5 LOW; código 0 |
+| Comprovante | Gerado com código 0 |
+
+Horários do comprovante:
+
+- Trivy vulnerável: `2026-09-25T18:55:43.174267524Z`.
+- KICS corrigido: `2026-09-25T18:56:24.27598912Z`.
+
+Respostas às perguntas do laboratório:
+
+1. O `trivy_created_at` vulnerável foi
+   `2026-09-25T18:55:43.174267524Z`; a correção indicada para
+   CVE-2025-27516 foi Jinja2 3.1.6.
+2. O `kics_started_at` corrigido foi `2026-09-25T18:56:24.27598912Z`;
+   restaram zero HIGH. As propriedades alteradas para remover os dois HIGH foram
+   `privileged: false` e `allowPrivilegeEscalation: false`.
+
+Como validação complementar fora do cronômetro, `scripts/run_scan.py` também foi
+executado nos dois estados. O vulnerável retornou 1 por dois bloqueantes, o
+corrigido retornou 0, e o container `verify` aprovou os dois relatórios. O fluxo
+completo levou 25,535 segundos.
 
 ## Dificuldade encontrada e correção
 
@@ -59,13 +103,16 @@ sistema operacional. Depois da alteração:
 Essa verificação dos relatórios existentes não substitui uma nova execução dos
 scanners nesta máquina.
 
-## Próximas etapas
+## Conclusão e próximas etapas
 
-1. Reiniciar o Windows quando a chamada terminar.
-2. Confirmar WSL, Docker Client e Docker Server com `docker version`.
-3. Executar a preparação descrita na seção 0 de `LAB.md`.
-4. Iniciar o cronômetro somente depois dos downloads.
-5. Executar os estados vulnerável e corrigido e gerar o comprovante.
-6. Registrar tempos, divergências e respostas às duas perguntas do laboratório.
-7. Repetir o fluxo após qualquer correção de documentação.
+Depois da preparação correta do ambiente, os comandos e resultados do `LAB.md`
+foram claros e reproduzíveis no Windows. Não foi necessária correção no roteiro
+principal. A dificuldade concreta encontrada foi a portabilidade do teste auxiliar,
+já corrigida nesta branch.
 
+Ainda falta:
+
+1. Fazer um ensaio humano com leitura e explicação dos resultados dentro de 12 minutos.
+2. Gravar o plano B de 5–8 minutos seguindo `evidencias/plano-b.md`.
+3. Registrar localização, duração e data da gravação.
+4. Publicar a branch e abrir o Pull Request depois da revisão final.
