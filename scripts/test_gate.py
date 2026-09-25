@@ -1,12 +1,13 @@
 """Regressões do gate: erro ou relatório antigo jamais podem produzir verde."""
 import json
-import os
+import importlib.util
 from pathlib import Path
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 
 class GateSafetyTests(unittest.TestCase):
@@ -14,19 +15,21 @@ class GateSafetyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "scripts").mkdir()
-            shutil.copy(Path(__file__).with_name("run_scan.py"), root / "scripts/run_scan.py")
+            run_scan_path = root / "scripts/run_scan.py"
+            shutil.copy(Path(__file__).with_name("run_scan.py"), run_scan_path)
             for tool in ("trivy", "kics"):
                 directory = root / "reports" / tool / "corrigido"
                 directory.mkdir(parents=True)
                 (directory / "results.json").write_text('{"stale": true}')
-            bin_dir = root / "bin"
-            bin_dir.mkdir()
-            fake = bin_dir / "docker"
-            fake.write_text("#!/bin/sh\nexit 0\n")
-            fake.chmod(0o755)
-            env = dict(os.environ, PATH=str(bin_dir) + os.pathsep + os.environ["PATH"])
-            result = subprocess.run([sys.executable, str(root / "scripts/run_scan.py"), "corrigido"], env=env, capture_output=True, text=True)
-            self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+            spec = importlib.util.spec_from_file_location("run_scan_under_test", run_scan_path)
+            run_scan = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(run_scan)
+            successful_command = {"exit_code": 0, "seconds": 0.0}
+            with mock.patch.object(sys, "argv", [str(run_scan_path), "corrigido"]), mock.patch.object(
+                run_scan, "run", return_value=successful_command
+            ):
+                result = run_scan.main()
+            self.assertEqual(result, 2)
             summary = json.loads((root / "reports/gate/corrigido/summary.json").read_text())
             self.assertEqual(summary["status"], "ERROR")
             self.assertEqual(len(summary["errors"]), 2)
