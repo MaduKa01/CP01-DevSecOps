@@ -12,8 +12,8 @@ TEMPLATES = SandboxedEnvironment(autoescape=True)
 
 
 def demonstration_digest(text):
-    """MD5 aqui é apenas checksum didático, não autenticação ou assinatura."""
-    return hashlib.md5(text.encode()).hexdigest()
+    """Checksum didático com SHA-256; não é autenticação ou assinatura."""
+    return hashlib.sha256(text.encode()).hexdigest()
 
 
 class Handler(BaseHTTPRequestHandler):
