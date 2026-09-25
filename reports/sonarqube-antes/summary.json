@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-09-25T17:29:48.116379+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "run",
+    "--rm",
+    "-T",
+    "sonar-scanner"
+  ],
+  "seconds": 19.663,
+  "scanner_exit_code": 0,
+  "compute_engine": {
+    "queue": [],
+    "current": {
+      "id": "fb6ac669-5db6-43ea-850d-e1c854fcdb78",
+      "type": "REPORT",
+      "componentId": "6aabda08-47a9-4609-8a6f-6eec43028555",
+      "componentKey": "cp01-devsecops-grupo2",
+      "componentName": "CP01 DevSecOps - Grupo 2",
+      "componentQualifier": "TRK",
+      "analysisId": "a6501880-3c53-411d-a137-2777a5c6b504",
+      "status": "SUCCESS",
+      "submittedAt": "2026-09-25T17:29:43+0000",
+      "submitterLogin": "admin",
+      "startedAt": "2026-09-25T17:29:45+0000",
+      "executedAt": "2026-09-25T17:29:46+0000",
+      "executionTimeMs": 1349,
+      "hasScannerContext": true,
+      "warningCount": 1,
+      "warnings": [
+        "Missing blame information for 1 file. This may lead to some features not working correctly. Please check the analysis logs and refer to <a href=\"https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scm-integration/\" rel=\"noopener noreferrer\" target=\"_blank\">the documentation</a>."
+      ],
+      "infoMessages": []
+    }
+  },
+  "issues": 2,
+  "hotspots": 0,
+  "open_issues": 2,
+  "resolved_issues": 0
+}

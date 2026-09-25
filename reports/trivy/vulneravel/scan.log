@@ -1,0 +1,6 @@
+ Container cp01-devsecops-trivy-run-547ec642e1c8 Creating 
+ Container cp01-devsecops-trivy-run-547ec642e1c8 Created 
+2026-09-25T17:20:48Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-09-25T17:20:48Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="unable to find path to Python executable"
+2026-09-25T17:20:48Z	INFO	Number of language-specific files	num=1
+2026-09-25T17:20:48Z	INFO	[pip] Detecting vulnerabilities...

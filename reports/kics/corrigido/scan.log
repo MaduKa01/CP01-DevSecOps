@@ -1,0 +1,123 @@
+ Container cp01-devsecops-kics-run-534ce92a56b0 Creating 
+ Container cp01-devsecops-kics-run-534ce92a56b0 Created 
+
+                                                                                                                                                   
+                                                                                                                                                                                                    
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL 
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM 
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML                      
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL     
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML  
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML 
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML  
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK    
+                                                                                                            
+                                                                                                                                                                                                                                                                                                                        
+
+
+Scanning with Keeping Infrastructure as Code Secure v2.1.20
+
+
+
+
+
+Pod or Container Without ResourceQuota, Severity: LOW, Results: 1
+Description: Each namespace should have a ResourceQuota policy associated to limit the total amount of resources Pods, Containers and PersistentVolumeClaims can consume
+Platform: Kubernetes
+CWE: 400
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/48a5beba-e4c0-4584-a2aa-e6894e4cf424
+
+	[1]: ../../workspace/corrigido/deployment.yaml:5
+
+		004: metadata:
+		005:   name: cp01-demo
+		006:   labels:
+
+
+Pod or Container Without LimitRange, Severity: LOW, Results: 1
+Description: Each namespace should have a LimitRange policy associated to ensure that resource allocations of Pods, Containers and PersistentVolumeClaims do not exceed the defined boundaries
+Platform: Kubernetes
+CWE: 400
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/4a20ebac-1060-4c81-95d1-1f7f620e983b
+
+	[1]: ../../workspace/corrigido/deployment.yaml:5
+
+		004: metadata:
+		005:   name: cp01-demo
+		006:   labels:
+
+
+Missing AppArmor Profile, Severity: LOW, Results: 1
+Description: Containers should be configured with an AppArmor profile to enforce fine-grained access control over low-level system resources
+Platform: Kubernetes
+CWE: 284
+Risk Score: 3.3
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/8b36775e-183d-4d46-b0f7-96a6f34a723f
+
+	[1]: ../../workspace/corrigido/deployment.yaml:14
+
+		013:   template:
+		014:     metadata:
+		015:       labels:
+
+
+Image Without Digest, Severity: LOW, Results: 1
+Description: Images should be specified together with their digests to ensure integrity
+Platform: Kubernetes
+CWE: 665
+Risk Score: 4.1
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/7c81d34c-8e5a-402b-9798-9f442630e678
+
+	[1]: ../../workspace/corrigido/deployment.yaml:27
+
+		026:         - name: app
+		027:           image: cp01-devsecops/app:lab-v1
+		028:           ports:
+
+
+Image Pull Policy Of The Container Is Not Set To Always, Severity: LOW, Results: 1
+Description: Image Pull Policy of the container must be defined and set to Always
+Platform: Kubernetes
+CWE: 665
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/caa3479d-885d-4882-9aac-95e5e78ef5c2
+
+	[1]: ../../workspace/corrigido/deployment.yaml:26
+
+		025:       containers:
+		026:         - name: app
+		027:           image: cp01-devsecops/app:lab-v1
+
+
+Using Unrecommended Namespace, Severity: MEDIUM, Results: 1
+Description: Namespaces like 'default', 'kube-system' or 'kube-public' should not be used
+Platform: Kubernetes
+CWE: 665
+Risk Score: 5.5
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/611ab018-c4aa-4ba2-b0f6-a448337509a6
+
+	[1]: ../../workspace/corrigido/deployment.yaml:5
+
+		004: metadata:
+		005:   name: cp01-demo
+		006:   labels:
+
+
+
+Results Summary:
+CRITICAL: 0
+HIGH: 0
+MEDIUM: 1
+LOW: 5
+INFO: 0
+TOTAL: 6
+

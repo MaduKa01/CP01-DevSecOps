@@ -1,0 +1,138 @@
+{
+  "variant": "vulneravel",
+  "started_at": "2026-09-25T17:20:48.506838+00:00",
+  "steps": {
+    "trivy_scan": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "fs",
+        "--scanners",
+        "vuln",
+        "--format",
+        "json",
+        "--output",
+        "/reports/trivy/vulneravel/results.json",
+        "--exit-code",
+        "0",
+        "--list-all-pkgs",
+        "--skip-db-update",
+        "--offline-scan",
+        "/workspace/vulneravel/requirements.txt"
+      ],
+      "exit_code": 0,
+      "seconds": 0.587
+    },
+    "trivy_sarif": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "convert",
+        "--format",
+        "sarif",
+        "--output",
+        "/reports/trivy/vulneravel/results.sarif",
+        "/reports/trivy/vulneravel/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.306
+    },
+    "trivy_cyclonedx": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "convert",
+        "--format",
+        "cyclonedx",
+        "--output",
+        "/reports/trivy/vulneravel/sbom.cdx.json",
+        "/reports/trivy/vulneravel/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    "trivy_gate": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "convert",
+        "--severity",
+        "HIGH,CRITICAL",
+        "--exit-code",
+        "1",
+        "/reports/trivy/vulneravel/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.281
+    },
+    "kics_scan": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "kics",
+        "scan",
+        "-p",
+        "/workspace/vulneravel/deployment.yaml",
+        "--type",
+        "Kubernetes",
+        "--report-formats",
+        "json,sarif",
+        "--output-path",
+        "/reports/kics/vulneravel",
+        "--fail-on",
+        "high,critical",
+        "--no-progress",
+        "--no-color"
+      ],
+      "exit_code": 50,
+      "seconds": 1.77
+    }
+  },
+  "errors": [],
+  "trivy_counts": {
+    "MEDIUM": 3
+  },
+  "kics_counts": {
+    "CRITICAL": 0,
+    "HIGH": 2,
+    "INFO": 0,
+    "LOW": 6,
+    "MEDIUM": 1,
+    "TRACE": 0
+  },
+  "blocking_findings": 2,
+  "exit_code": 1,
+  "status": "FAIL",
+  "policy": {
+    "block": [
+      "HIGH",
+      "CRITICAL"
+    ],
+    "suppressions": [],
+    "trivy_severity_source": "vendor default"
+  },
+  "inputs_sha256": {
+    "fixtures/vulneravel/deployment.yaml": "3e57afa9ba08a6291afb19650012f808e972ab0f0e1417de1edc25ab0c45fd40",
+    "fixtures/vulneravel/requirements.txt": "062dcb76b26c2591ba655a896855d77db8340c95b08357e23344606ddd9edbfa"
+  },
+  "finished_at": "2026-09-25T17:20:51.753990+00:00"
+}

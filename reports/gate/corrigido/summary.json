@@ -1,0 +1,136 @@
+{
+  "variant": "corrigido",
+  "started_at": "2026-09-25T17:21:27.242990+00:00",
+  "steps": {
+    "trivy_scan": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "fs",
+        "--scanners",
+        "vuln",
+        "--format",
+        "json",
+        "--output",
+        "/reports/trivy/corrigido/results.json",
+        "--exit-code",
+        "0",
+        "--list-all-pkgs",
+        "--skip-db-update",
+        "--offline-scan",
+        "/workspace/corrigido/requirements.txt"
+      ],
+      "exit_code": 0,
+      "seconds": 0.452
+    },
+    "trivy_sarif": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "convert",
+        "--format",
+        "sarif",
+        "--output",
+        "/reports/trivy/corrigido/results.sarif",
+        "/reports/trivy/corrigido/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.295
+    },
+    "trivy_cyclonedx": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "convert",
+        "--format",
+        "cyclonedx",
+        "--output",
+        "/reports/trivy/corrigido/sbom.cdx.json",
+        "/reports/trivy/corrigido/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.384
+    },
+    "trivy_gate": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "trivy",
+        "convert",
+        "--severity",
+        "HIGH,CRITICAL",
+        "--exit-code",
+        "1",
+        "/reports/trivy/corrigido/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.301
+    },
+    "kics_scan": {
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "kics",
+        "scan",
+        "-p",
+        "/workspace/corrigido/deployment.yaml",
+        "--type",
+        "Kubernetes",
+        "--report-formats",
+        "json,sarif",
+        "--output-path",
+        "/reports/kics/corrigido",
+        "--fail-on",
+        "high,critical",
+        "--no-progress",
+        "--no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 1.291
+    }
+  },
+  "errors": [],
+  "trivy_counts": {},
+  "kics_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "INFO": 0,
+    "LOW": 5,
+    "MEDIUM": 1,
+    "TRACE": 0
+  },
+  "blocking_findings": 0,
+  "exit_code": 0,
+  "status": "PASS",
+  "policy": {
+    "block": [
+      "HIGH",
+      "CRITICAL"
+    ],
+    "suppressions": [],
+    "trivy_severity_source": "vendor default"
+  },
+  "inputs_sha256": {
+    "fixtures/corrigido/deployment.yaml": "ecf84f995ae129e630decf4a8fa2f3215657035b9b38913a6d561882a38e951b",
+    "fixtures/corrigido/requirements.txt": "2fc67b68124c999cb0d1d2baf15adc8e5b291a93cb39784fb356a989e77d2677"
+  },
+  "finished_at": "2026-09-25T17:21:29.969426+00:00"
+}

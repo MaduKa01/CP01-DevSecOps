@@ -27,6 +27,8 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Validar Compose
         run: docker compose config --quiet
+      - name: Verificar que erros não produzem falso verde
+        run: python3 scripts/test_gate.py
       - name: Preparar scanners
         run: docker compose pull trivy kics
       - name: Executar SCA e IaC com gate HIGH/CRITICAL
@@ -36,7 +38,9 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: security-${{ env.LAB_VARIANT }}-${{ github.run_id }}
-          path: reports/
+          path: |
+            reports/trivy/${{ env.LAB_VARIANT }}/
+            reports/kics/${{ env.LAB_VARIANT }}/
+            reports/gate/${{ env.LAB_VARIANT }}/
           if-no-files-found: error
           retention-days: 30
-

@@ -6,4 +6,4 @@ __pycache__/
 .sonar/
 work/
 reports/*/latest/
-
+reports/comprovante.json

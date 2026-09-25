@@ -1,0 +1,122 @@
+{
+  "total": 2,
+  "p": 1,
+  "ps": 500,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 500,
+    "total": 2
+  },
+  "effortTotal": 60,
+  "issues": [
+    {
+      "key": "6c7f9602-aba2-48c7-9584-66af2e9fa001",
+      "rule": "python:S4790",
+      "severity": "CRITICAL",
+      "component": "cp01-devsecops-grupo2:app/server.py",
+      "project": "cp01-devsecops-grupo2",
+      "hash": "87ba0106f962f9c0bd2929005eb37d96",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 19,
+        "endOffset": 22
+      },
+      "flows": [],
+      "resolution": "FIXED",
+      "status": "CLOSED",
+      "message": "Make sure that hashing data is safe here.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "ronaldoatt@gmail.com",
+      "tags": [
+        "cwe",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-09-25T17:29:37+0000",
+      "updateDate": "2026-09-25T17:31:48+0000",
+      "closeDate": "2026-09-25T17:31:48+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "FIXED",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8da1e634-4280-423e-b22d-615c6f5f56fd",
+      "rule": "python:S5332",
+      "severity": "MINOR",
+      "component": "cp01-devsecops-grupo2:app/server.py",
+      "project": "cp01-devsecops-grupo2",
+      "line": 59,
+      "hash": "19be3bc7bd76f981d19f36a04dda2e7c",
+      "textRange": {
+        "startLine": 59,
+        "endLine": 59,
+        "startOffset": 4,
+        "endOffset": 67
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Using HTTP protocol is insecure. Use HTTPS instead.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "ronaldoatt@gmail.com",
+      "tags": [
+        "cwe",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-09-25T17:29:37+0000",
+      "updateDate": "2026-09-25T17:31:48+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "cp01-devsecops-grupo2:app/server.py",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "server.py",
+      "longName": "app/server.py",
+      "path": "app/server.py"
+    },
+    {
+      "key": "cp01-devsecops-grupo2",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "CP01 DevSecOps - Grupo 2",
+      "longName": "CP01 DevSecOps - Grupo 2"
+    }
+  ],
+  "facets": []
+}

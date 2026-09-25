@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-09-25T17:23:58.250762+00:00",
+  "scope": "Containers locais app-vulneravel e app-corrigido; um template próprio",
+  "runs": [
+    {
+      "variant": "vulneravel",
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "nuclei",
+        "-u",
+        "http://app-vulneravel:8080",
+        "-t",
+        "/templates/debug-exposure.yaml",
+        "-duc",
+        "-ni",
+        "-jsonl-export",
+        "/reports/nuclei/vulneravel/results.jsonl",
+        "-no-color",
+        "-stats"
+      ],
+      "seconds": 0.722,
+      "exit_code": 0,
+      "matches": 1,
+      "expected_matches": 1,
+      "validated": true
+    },
+    {
+      "variant": "corrigido",
+      "command": [
+        "docker",
+        "compose",
+        "run",
+        "--rm",
+        "-T",
+        "nuclei",
+        "-u",
+        "http://app-corrigido:8080",
+        "-t",
+        "/templates/debug-exposure.yaml",
+        "-duc",
+        "-ni",
+        "-jsonl-export",
+        "/reports/nuclei/corrigido/results.jsonl",
+        "-no-color",
+        "-stats"
+      ],
+      "seconds": 0.633,
+      "exit_code": 0,
+      "matches": 0,
+      "expected_matches": 0,
+      "validated": true
+    }
+  ]
+}

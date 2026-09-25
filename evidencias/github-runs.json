@@ -1,0 +1,102 @@
+[
+  {
+    "id": 36167909434,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/MaduKa01/CP01-DevSecOps/actions/runs/36167909434",
+    "head_sha": "c736a606f384d0bd3d05a66aa7e200e8737642b7",
+    "created_at": "2026-09-25T17:33:49Z",
+    "updated_at": "2026-09-25T17:34:16Z",
+    "jobs": [
+      {
+        "name": "security",
+        "conclusion": "failure",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Checkout",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar Compose",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preparar scanners",
+            "conclusion": "success"
+          },
+          {
+            "name": "Executar SCA e IaC com gate HIGH/CRITICAL",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Preservar relat\u00f3rios mesmo se o gate bloquear",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Checkout",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 36167707788,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/MaduKa01/CP01-DevSecOps/actions/runs/36167707788",
+    "head_sha": "c736a606f384d0bd3d05a66aa7e200e8737642b7",
+    "created_at": "2026-09-25T17:31:55Z",
+    "updated_at": "2026-09-25T17:32:29Z",
+    "jobs": [
+      {
+        "name": "security",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Checkout",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar Compose",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preparar scanners",
+            "conclusion": "success"
+          },
+          {
+            "name": "Executar SCA e IaC com gate HIGH/CRITICAL",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preservar relat\u00f3rios mesmo se o gate bloquear",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Checkout",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,657 @@
+{
+	"$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+	"version": "2.1.0",
+	"runs": [
+		{
+			"tool": {
+				"driver": {
+					"name": "KICS",
+					"version": "v2.1.20",
+					"fullName": "Keeping Infrastructure as Code Secure",
+					"informationUri": "https://www.kics.io/",
+					"rules": [
+						{
+							"id": "611ab018-c4aa-4ba2-b0f6-a448337509a6",
+							"name": "Using Unrecommended Namespace",
+							"shortDescription": {
+								"text": "Using Unrecommended Namespace"
+							},
+							"fullDescription": {
+								"text": "Namespaces like 'default', 'kube-system' or 'kube-public' should not be used"
+							},
+							"defaultConfiguration": {
+								"level": "warning"
+							},
+							"helpUri": "https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/",
+							"relationships": [
+								{
+									"target": {
+										"id": "CAT007",
+										"index": 12,
+										"toolComponent": {
+											"name": "Categories",
+											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
+										}
+									}
+								},
+								{
+									"target": {
+										"id": "665",
+										"guid": "3e5127d3-9af0-45cd-acc4-4f0ab34babb5",
+										"toolComponent": {
+											"name": "CWE",
+											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
+										}
+									}
+								}
+							],
+							"properties": {
+								"riskScore": "5.5"
+							}
+						},
+						{
+							"id": "caa3479d-885d-4882-9aac-95e5e78ef5c2",
+							"name": "Image Pull Policy Of The Container Is Not Set To Always",
+							"shortDescription": {
+								"text": "Image Pull Policy Of The Container Is Not Set To Always"
+							},
+							"fullDescription": {
+								"text": "Image Pull Policy of the container must be defined and set to Always"
+							},
+							"defaultConfiguration": {
+								"level": "note"
+							},
+							"helpUri": "https://kubernetes.io/docs/concepts/containers/images/#updating-images",
+							"relationships": [
+								{
+									"target": {
+										"id": "CAT007",
+										"index": 12,
+										"toolComponent": {
+											"name": "Categories",
+											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
+										}
+									}
+								},
+								{
+									"target": {
+										"id": "665",
+										"guid": "f9500ac6-9eb0-4b1a-8d5c-52e37c471de0",
+										"toolComponent": {
+											"name": "CWE",
+											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
+										}
+									}
+								}
+							],
+							"properties": {
+								"riskScore": "2.8"
+							}
+						},
+						{
+							"id": "7c81d34c-8e5a-402b-9798-9f442630e678",
+							"name": "Image Without Digest",
+							"shortDescription": {
+								"text": "Image Without Digest"
+							},
+							"fullDescription": {
+								"text": "Images should be specified together with their digests to ensure integrity"
+							},
+							"defaultConfiguration": {
+								"level": "note"
+							},
+							"helpUri": "https://kubernetes.io/docs/concepts/containers/images/#updating-images",
+							"relationships": [
+								{
+									"target": {
+										"id": "CAT007",
+										"index": 12,
+										"toolComponent": {
+											"name": "Categories",
+											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
+										}
+									}
+								},
+								{
+									"target": {
+										"id": "665",
+										"guid": "68f78d9d-044e-4e1e-a9d4-b9be5d2bd66e",
+										"toolComponent": {
+											"name": "CWE",
+											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
+										}
+									}
+								}
+							],
+							"properties": {
+								"riskScore": "4.1"
+							}
+						},
+						{
+							"id": "8b36775e-183d-4d46-b0f7-96a6f34a723f",
+							"name": "Missing AppArmor Profile",
+							"shortDescription": {
+								"text": "Missing AppArmor Profile"
+							},
+							"fullDescription": {
+								"text": "Containers should be configured with an AppArmor profile to enforce fine-grained access control over low-level system resources"
+							},
+							"defaultConfiguration": {
+								"level": "note"
+							},
+							"helpUri": "https://kubernetes.io/docs/tutorials/clusters/apparmor/",
+							"relationships": [
+								{
+									"target": {
+										"id": "CAT001",
+										"index": 11,
+										"toolComponent": {
+											"name": "Categories",
+											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
+										}
+									}
+								},
+								{
+									"target": {
+										"id": "284",
+										"guid": "1df053cd-29de-4fcf-a3c5-e9b1622701b1",
+										"toolComponent": {
+											"name": "CWE",
+											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
+										}
+									}
+								}
+							],
+							"properties": {
+								"riskScore": "3.3"
+							}
+						},
+						{
+							"id": "4a20ebac-1060-4c81-95d1-1f7f620e983b",
+							"name": "Pod or Container Without LimitRange",
+							"shortDescription": {
+								"text": "Pod or Container Without LimitRange"
+							},
+							"fullDescription": {
+								"text": "Each namespace should have a LimitRange policy associated to ensure that resource allocations of Pods, Containers and PersistentVolumeClaims do not exceed the defined boundaries"
+							},
+							"defaultConfiguration": {
+								"level": "note"
+							},
+							"helpUri": "https://kubernetes.io/docs/concepts/policy/limit-range/",
+							"relationships": [
+								{
+									"target": {
+										"id": "CAT007",
+										"index": 12,
+										"toolComponent": {
+											"name": "Categories",
+											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
+										}
+									}
+								},
+								{
+									"target": {
+										"id": "400",
+										"guid": "19c079ef-72ff-47f0-9034-ffe92f218a0e",
+										"toolComponent": {
+											"name": "CWE",
+											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
+										}
+									}
+								}
+							],
+							"properties": {
+								"riskScore": "2.8"
+							}
+						},
+						{
+							"id": "48a5beba-e4c0-4584-a2aa-e6894e4cf424",
+							"name": "Pod or Container Without ResourceQuota",
+							"shortDescription": {
+								"text": "Pod or Container Without ResourceQuota"
+							},
+							"fullDescription": {
+								"text": "Each namespace should have a ResourceQuota policy associated to limit the total amount of resources Pods, Containers and PersistentVolumeClaims can consume"
+							},
+							"defaultConfiguration": {
+								"level": "note"
+							},
+							"helpUri": "https://kubernetes.io/docs/concepts/policy/resource-quotas/",
+							"relationships": [
+								{
+									"target": {
+										"id": "CAT007",
+										"index": 12,
+										"toolComponent": {
+											"name": "Categories",
+											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
+										}
+									}
+								},
+								{
+									"target": {
+										"id": "400",
+										"guid": "acbb8d9e-c085-402c-90cd-f854396c727e",
+										"toolComponent": {
+											"name": "CWE",
+											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
+										}
+									}
+								}
+							],
+							"properties": {
+								"riskScore": "2.8"
+							}
+						}
+					]
+				}
+			},
+			"results": [
+				{
+					"ruleId": "611ab018-c4aa-4ba2-b0f6-a448337509a6",
+					"ruleIndex": 0,
+					"kind": "fail",
+					"message": {
+						"text": "metadata.namespace is undefined or null",
+						"properties": {
+							"platform": "Kubernetes",
+							"riskScore": "5.5"
+						}
+					},
+					"locations": [
+						{
+							"physicalLocation": {
+								"artifactLocation": {
+									"uri": "../../workspace/corrigido/deployment.yaml"
+								},
+								"region": {
+									"startLine": 5
+								}
+							}
+						}
+					]
+				},
+				{
+					"ruleId": "caa3479d-885d-4882-9aac-95e5e78ef5c2",
+					"ruleIndex": 1,
+					"kind": "fail",
+					"message": {
+						"text": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.imagePullPolicy relies on mutable images in cache",
+						"properties": {
+							"platform": "Kubernetes",
+							"riskScore": "2.8"
+						}
+					},
+					"locations": [
+						{
+							"physicalLocation": {
+								"artifactLocation": {
+									"uri": "../../workspace/corrigido/deployment.yaml"
+								},
+								"region": {
+									"startLine": 26
+								}
+							}
+						}
+					]
+				},
+				{
+					"ruleId": "7c81d34c-8e5a-402b-9798-9f442630e678",
+					"ruleIndex": 2,
+					"kind": "fail",
+					"message": {
+						"text": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.image does not include an image digest",
+						"properties": {
+							"platform": "Kubernetes",
+							"riskScore": "4.1"
+						}
+					},
+					"locations": [
+						{
+							"physicalLocation": {
+								"artifactLocation": {
+									"uri": "../../workspace/corrigido/deployment.yaml"
+								},
+								"region": {
+									"startLine": 27
+								}
+							}
+						}
+					]
+				},
+				{
+					"ruleId": "8b36775e-183d-4d46-b0f7-96a6f34a723f",
+					"ruleIndex": 3,
+					"kind": "fail",
+					"message": {
+						"text": "metadata.name={{cp01-demo}}.spec.template.metadata.annotations does not specify an AppArmor profile for container {{app}}",
+						"properties": {
+							"platform": "Kubernetes",
+							"riskScore": "3.3"
+						}
+					},
+					"locations": [
+						{
+							"physicalLocation": {
+								"artifactLocation": {
+									"uri": "../../workspace/corrigido/deployment.yaml"
+								},
+								"region": {
+									"startLine": 14
+								}
+							}
+						}
+					]
+				},
+				{
+					"ruleId": "4a20ebac-1060-4c81-95d1-1f7f620e983b",
+					"ruleIndex": 4,
+					"kind": "fail",
+					"message": {
+						"text": "metadata.name={{cp01-demo}} does not have a 'LimitRange' policy associated",
+						"properties": {
+							"platform": "Kubernetes",
+							"riskScore": "2.8"
+						}
+					},
+					"locations": [
+						{
+							"physicalLocation": {
+								"artifactLocation": {
+									"uri": "../../workspace/corrigido/deployment.yaml"
+								},
+								"region": {
+									"startLine": 5
+								}
+							}
+						}
+					]
+				},
+				{
+					"ruleId": "48a5beba-e4c0-4584-a2aa-e6894e4cf424",
+					"ruleIndex": 5,
+					"kind": "fail",
+					"message": {
+						"text": "metadata.name={{cp01-demo}} does not have a 'ResourceQuota' policy associated",
+						"properties": {
+							"platform": "Kubernetes",
+							"riskScore": "2.8"
+						}
+					},
+					"locations": [
+						{
+							"physicalLocation": {
+								"artifactLocation": {
+									"uri": "../../workspace/corrigido/deployment.yaml"
+								},
+								"region": {
+									"startLine": 5
+								}
+							}
+						}
+					]
+				}
+			],
+			"taxonomies": [
+				{
+					"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f",
+					"name": "Categories",
+					"fullDescription": {
+						"text": "This taxonomy contains the types an issue can assume"
+					},
+					"shortDescription": {
+						"text": "Vulnerabilities categories"
+					},
+					"taxa": [
+						{
+							"name": "Undefined Category",
+							"id": "CAT000",
+							"shortDescription": {
+								"text": "Category is not defined"
+							},
+							"fullDescription": {
+								"text": "Category is not defined"
+							}
+						},
+						{
+							"name": "Structure and Semantics",
+							"id": "CAT014",
+							"shortDescription": {
+								"text": "Malformed document structure or inadequate semantics"
+							},
+							"fullDescription": {
+								"text": "Malformed document structure or inadequate semantics"
+							}
+						},
+						{
+							"name": "Backup",
+							"id": "CAT003",
+							"shortDescription": {
+								"text": "Survivability and Recovery"
+							},
+							"fullDescription": {
+								"text": "Survivability and Recovery"
+							}
+						},
+						{
+							"name": "Build Process",
+							"id": "CAT005",
+							"shortDescription": {
+								"text": "Insecure configurations when building/deploying"
+							},
+							"fullDescription": {
+								"text": "Insecure configurations when building/deploying"
+							}
+						},
+						{
+							"name": "Resource Management",
+							"id": "CAT011",
+							"shortDescription": {
+								"text": "Resource and privilege limit configuration"
+							},
+							"fullDescription": {
+								"text": "Resource and privilege limit configuration"
+							}
+						},
+						{
+							"name": "Secret Management",
+							"id": "CAT012",
+							"shortDescription": {
+								"text": "Secret and Key management"
+							},
+							"fullDescription": {
+								"text": "Secret and Key management"
+							}
+						},
+						{
+							"name": "Supply-Chain",
+							"id": "CAT013",
+							"shortDescription": {
+								"text": "Dependency version management"
+							},
+							"fullDescription": {
+								"text": "Dependency version management"
+							}
+						},
+						{
+							"name": "Bill Of Materials",
+							"id": "CAT015",
+							"shortDescription": {
+								"text": "List of resources provisioned"
+							},
+							"fullDescription": {
+								"text": "List of resources provisioned"
+							}
+						},
+						{
+							"name": "Availability",
+							"id": "CAT002",
+							"shortDescription": {
+								"text": "Reliability and Scalability"
+							},
+							"fullDescription": {
+								"text": "Reliability and Scalability"
+							}
+						},
+						{
+							"name": "Best Practices",
+							"id": "CAT004",
+							"shortDescription": {
+								"text": "Metadata management"
+							},
+							"fullDescription": {
+								"text": "Metadata management"
+							}
+						},
+						{
+							"name": "Encryption",
+							"id": "CAT006",
+							"shortDescription": {
+								"text": "Data Security and Encryption configuration"
+							},
+							"fullDescription": {
+								"text": "Data Security and Encryption configuration"
+							}
+						},
+						{
+							"name": "Access Control",
+							"id": "CAT001",
+							"shortDescription": {
+								"text": "Service permission and identity management"
+							},
+							"fullDescription": {
+								"text": "Service permission and identity management"
+							}
+						},
+						{
+							"name": "Insecure Configurations",
+							"id": "CAT007",
+							"shortDescription": {
+								"text": "Configurations which expose the application unnecessarily"
+							},
+							"fullDescription": {
+								"text": "Configurations which expose the application unnecessarily"
+							}
+						},
+						{
+							"name": "Networking and Firewall",
+							"id": "CAT009",
+							"shortDescription": {
+								"text": "Network port exposure and firewall configuration"
+							},
+							"fullDescription": {
+								"text": "Network port exposure and firewall configuration"
+							}
+						},
+						{
+							"name": "Observability",
+							"id": "CAT010",
+							"shortDescription": {
+								"text": "Logging and Monitoring"
+							},
+							"fullDescription": {
+								"text": "Logging and Monitoring"
+							}
+						},
+						{
+							"name": "Insecure Defaults",
+							"id": "CAT008",
+							"shortDescription": {
+								"text": "Configurations that are insecure by default"
+							},
+							"fullDescription": {
+								"text": "Configurations that are insecure by default"
+							}
+						}
+					]
+				},
+				{
+					"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3",
+					"name": "CWE",
+					"fullDescription": {
+						"text": "The MITRE Common Weakness Enumeration"
+					},
+					"shortDescription": {
+						"text": "The MITRE Common Weakness Enumeration"
+					},
+					"downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.13.xml.zip",
+					"informationUri": "https://cwe.mitre.org/data/published/cwe_v4.13.pdf",
+					"isComprehensive": true,
+					"language": "en",
+					"minimumRequiredLocalizedDataSemanticVersion": "4.13",
+					"organization": "MITRE",
+					"releaseDateUtc": "2023-10-26",
+					"taxa": [
+						{
+							"guid": "68f78d9d-044e-4e1e-a9d4-b9be5d2bd66e",
+							"id": "665",
+							"shortDescription": {
+								"text": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used."
+							},
+							"fullDescription": {
+								"text": "This can have security implications when the associated resource is expected to have certain properties or values, such as a variable that determines whether a user has been authenticated or not."
+							},
+							"helpUri": "https://cwe.mitre.org/data/definitions/665.html"
+						},
+						{
+							"guid": "68f78d9d-044e-4e1e-a9d4-b9be5d2bd66e",
+							"id": "665",
+							"shortDescription": {
+								"text": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used."
+							},
+							"fullDescription": {
+								"text": "This can have security implications when the associated resource is expected to have certain properties or values, such as a variable that determines whether a user has been authenticated or not."
+							},
+							"helpUri": "https://cwe.mitre.org/data/definitions/665.html"
+						},
+						{
+							"guid": "68f78d9d-044e-4e1e-a9d4-b9be5d2bd66e",
+							"id": "665",
+							"shortDescription": {
+								"text": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used."
+							},
+							"fullDescription": {
+								"text": "This can have security implications when the associated resource is expected to have certain properties or values, such as a variable that determines whether a user has been authenticated or not."
+							},
+							"helpUri": "https://cwe.mitre.org/data/definitions/665.html"
+						},
+						{
+							"guid": "1df053cd-29de-4fcf-a3c5-e9b1622701b1",
+							"id": "284",
+							"shortDescription": {
+								"text": "The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor."
+							},
+							"fullDescription": {
+								"text": "Access control involves the use of several protection mechanisms such as: Authentication (proving the identity of an actor) Authorization (ensuring that a given actor can access a resource), and Accountability (tracking of activities that were performed) When any mechanism is not applied or otherwise fails, attackers can compromise the security of the product by gaining privileges, reading sensitive information, executing commands, evading detection, etc. There are two distinct behaviors that can introduce access control weaknesses: Specification: incorrect privileges, permissions, ownership, etc. are explicitly specified for either the user or the resource (for example, setting a password file to be world-writable, or giving administrator capabilities to a guest user). This action could be performed by the program or the administrator. Enforcement: the mechanism contains errors that prevent it from properly enforcing the specified access control requirements (e.g., allowing the user to specify their own privileges, or allowing a syntactically-incorrect ACL to produce insecure settings). This problem occurs within the program itself, in that it does not actually enforce the intended security policy that the administrator specifies."
+							},
+							"helpUri": "https://cwe.mitre.org/data/definitions/284.html"
+						},
+						{
+							"guid": "acbb8d9e-c085-402c-90cd-f854396c727e",
+							"id": "400",
+							"shortDescription": {
+								"text": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
+							},
+							"fullDescription": {
+								"text": "Limited resources include memory, file system storage, database connection pool entries, and CPU. If an attacker can trigger the allocation of these limited resources, but the number or size of the resources is not controlled, then the attacker could cause a denial of service that consumes all available resources. This would prevent valid users from accessing the product, and it could potentially have an impact on the surrounding environment. For example, a memory exhaustion attack against an application could slow down the application as well as its host operating system. There are at least three distinct scenarios which can commonly lead to resource exhaustion: Lack of throttling for the number of allocated resources Losing all references to a resource before reaching the shutdown stage Not closing/returning a resource after processing Resource exhaustion problems are often result due to an incorrect implementation of the following situations: Error conditions and other exceptional circumstances. Confusion over which part of the program is responsible for releasing the resource."
+							},
+							"helpUri": "https://cwe.mitre.org/data/definitions/400.html"
+						},
+						{
+							"guid": "acbb8d9e-c085-402c-90cd-f854396c727e",
+							"id": "400",
+							"shortDescription": {
+								"text": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
+							},
+							"fullDescription": {
+								"text": "Limited resources include memory, file system storage, database connection pool entries, and CPU. If an attacker can trigger the allocation of these limited resources, but the number or size of the resources is not controlled, then the attacker could cause a denial of service that consumes all available resources. This would prevent valid users from accessing the product, and it could potentially have an impact on the surrounding environment. For example, a memory exhaustion attack against an application could slow down the application as well as its host operating system. There are at least three distinct scenarios which can commonly lead to resource exhaustion: Lack of throttling for the number of allocated resources Losing all references to a resource before reaching the shutdown stage Not closing/returning a resource after processing Resource exhaustion problems are often result due to an incorrect implementation of the following situations: Error conditions and other exceptional circumstances. Confusion over which part of the program is responsible for releasing the resource."
+							},
+							"helpUri": "https://cwe.mitre.org/data/definitions/400.html"
+						}
+					]
+				}
+			]
+		}
+	]
+}

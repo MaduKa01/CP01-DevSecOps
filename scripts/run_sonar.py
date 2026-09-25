@@ -46,10 +46,13 @@ def main():
         (output / f"{name}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
         if name in ("issues", "hotspots"):
             summary[name] = len(data.get(name, []))
+            if name == "issues":
+                summary["open_issues"] = sum(i.get("status") not in ("CLOSED", "RESOLVED") for i in data["issues"])
+                summary["resolved_issues"] = summary["issues"] - summary["open_issues"]
             if data.get("paging", {}).get("total", summary[name]) > summary[name]:
                 raise RuntimeError("Relatório paginado/truncado: ampliar exportação")
     (output / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
-    print(f"SonarQube: {summary['issues']} issues, {summary['hotspots']} security hotspots. Tempo: {summary['seconds']}s")
+    print(f"SonarQube: {summary['open_issues']} issues abertas, {summary['resolved_issues']} encerradas, {summary['hotspots']} hotspots. Tempo: {summary['seconds']}s")
     return 0
 
 

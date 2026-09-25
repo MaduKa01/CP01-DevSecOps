@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-09-25T17:31:57.560244+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "run",
+    "--rm",
+    "-T",
+    "sonar-scanner"
+  ],
+  "seconds": 15.652,
+  "scanner_exit_code": 0,
+  "compute_engine": {
+    "queue": [],
+    "current": {
+      "id": "8974fc55-5fa1-465f-9f01-55a3325100e7",
+      "type": "REPORT",
+      "componentId": "6aabda08-47a9-4609-8a6f-6eec43028555",
+      "componentKey": "cp01-devsecops-grupo2",
+      "componentName": "CP01 DevSecOps - Grupo 2",
+      "componentQualifier": "TRK",
+      "analysisId": "001e3d3d-ffcf-4952-bc04-5e7f11bb779a",
+      "status": "SUCCESS",
+      "submittedAt": "2026-09-25T17:31:54+0000",
+      "submitterLogin": "admin",
+      "startedAt": "2026-09-25T17:31:55+0000",
+      "executedAt": "2026-09-25T17:31:56+0000",
+      "executionTimeMs": 793,
+      "hasScannerContext": true,
+      "warningCount": 0,
+      "warnings": [],
+      "infoMessages": []
+    }
+  },
+  "issues": 2,
+  "hotspots": 0,
+  "open_issues": 1,
+  "resolved_issues": 1
+}

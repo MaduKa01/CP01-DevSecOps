@@ -1,0 +1,291 @@
+{
+	"kics_version": "v2.1.20",
+	"files_scanned": 1,
+	"lines_scanned": 52,
+	"files_parsed": 1,
+	"lines_parsed": 51,
+	"lines_ignored": 1,
+	"files_failed_to_scan": 0,
+	"queries_total": 142,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"CRITICAL": 0,
+		"HIGH": 2,
+		"INFO": 0,
+		"LOW": 6,
+		"MEDIUM": 1,
+		"TRACE": 0
+	},
+	"total_counter": 9,
+	"total_bom_resources": 0,
+	"start": "2026-09-25T17:20:50.640252262Z",
+	"end": "2026-09-25T17:20:51.602724346Z",
+	"paths": [
+		"/workspace/vulneravel/deployment.yaml"
+	],
+	"queries": [
+		{
+			"query_name": "Container Is Privileged",
+			"query_id": "dd29336b-fe57-445b-a26e-e6aa867ae609",
+			"query_url": "https://kubernetes.io/docs/concepts/workloads/pods/#privileged-mode-for-containers",
+			"severity": "HIGH",
+			"platform": "Kubernetes",
+			"cwe": "269",
+			"risk_score": "7.7",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Privileged containers lack essential security restrictions and should be avoided by removing the 'privileged' flag or by changing its value to false",
+			"description_id": "55f59030",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "b1c4ae9e07f00f8323f526c74c993584067c3f1522d438373d84a7f2d61a4920",
+					"line": 31,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "IncorrectValue",
+					"search_key": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.privileged",
+					"search_line": -1,
+					"search_value": "",
+					"expected_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.privileged is unset or false",
+					"actual_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.privileged is true"
+				}
+			]
+		},
+		{
+			"query_name": "Privilege Escalation Allowed",
+			"query_id": "5572cc5e-1e4c-4113-92a6-7a8a3bd25e6d",
+			"query_url": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
+			"severity": "HIGH",
+			"platform": "Kubernetes",
+			"cwe": "269",
+			"risk_score": "7.7",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Containers should not run with allowPrivilegeEscalation in order to prevent them from gaining more privileges than their parent process",
+			"description_id": "525fccf4",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "1dd16caba7b319f659d6beb716f04a3e98211554a37eb5247209fdeda4109629",
+					"line": 32,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "IncorrectValue",
+					"search_key": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.allowPrivilegeEscalation",
+					"search_line": 32,
+					"search_value": "Deployment",
+					"expected_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.allowPrivilegeEscalation should be set to false",
+					"actual_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.allowPrivilegeEscalation is true"
+				}
+			]
+		},
+		{
+			"query_name": "Using Unrecommended Namespace",
+			"query_id": "611ab018-c4aa-4ba2-b0f6-a448337509a6",
+			"query_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/",
+			"severity": "MEDIUM",
+			"platform": "Kubernetes",
+			"cwe": "665",
+			"risk_score": "5.5",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Namespaces like 'default', 'kube-system' or 'kube-public' should not be used",
+			"description_id": "29549ea9",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "41351540a2fc64b405daa96a190fcd3e3e314e3cc28306861cf7e9ca73e53a5b",
+					"line": 5,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "MissingAttribute",
+					"search_key": "kind={{Deployment}}.metadata.name={{cp01-demo}}",
+					"search_line": 5,
+					"search_value": "Deployment",
+					"expected_value": "metadata.namespace should be defined and not null",
+					"actual_value": "metadata.namespace is undefined or null"
+				}
+			]
+		},
+		{
+			"query_name": "Image Pull Policy Of The Container Is Not Set To Always",
+			"query_id": "caa3479d-885d-4882-9aac-95e5e78ef5c2",
+			"query_url": "https://kubernetes.io/docs/concepts/containers/images/#updating-images",
+			"severity": "LOW",
+			"platform": "Kubernetes",
+			"cwe": "665",
+			"risk_score": "2.8",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Image Pull Policy of the container must be defined and set to Always",
+			"description_id": "201e3c8d",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "efa8c136b01d2bd340519191782026218ffaff3e4e7d75b6e5a096110eb04575",
+					"line": 26,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "MissingAttribute",
+					"search_key": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}",
+					"search_line": 26,
+					"search_value": "Deployment",
+					"expected_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.imagePullPolicy should be set to 'Always'",
+					"actual_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.imagePullPolicy relies on mutable images in cache"
+				}
+			]
+		},
+		{
+			"query_name": "Image Without Digest",
+			"query_id": "7c81d34c-8e5a-402b-9798-9f442630e678",
+			"query_url": "https://kubernetes.io/docs/concepts/containers/images/#updating-images",
+			"severity": "LOW",
+			"platform": "Kubernetes",
+			"cwe": "665",
+			"risk_score": "4.1",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Images should be specified together with their digests to ensure integrity",
+			"description_id": "3f9f8d78",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "3f952b9986adfda32b677f74d3f7c4fbc2605ea4af441a8f9a5d2d70b5268558",
+					"line": 27,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "IncorrectValue",
+					"search_key": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.image",
+					"search_line": 27,
+					"search_value": "Deployment",
+					"expected_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.image should specify the image with a digest",
+					"actual_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.image does not include an image digest"
+				}
+			]
+		},
+		{
+			"query_name": "Missing AppArmor Profile",
+			"query_id": "8b36775e-183d-4d46-b0f7-96a6f34a723f",
+			"query_url": "https://kubernetes.io/docs/tutorials/clusters/apparmor/",
+			"severity": "LOW",
+			"platform": "Kubernetes",
+			"cwe": "284",
+			"risk_score": "3.3",
+			"cloud_provider": "COMMON",
+			"category": "Access Control",
+			"experimental": false,
+			"description": "Containers should be configured with an AppArmor profile to enforce fine-grained access control over low-level system resources",
+			"description_id": "59c17c0a",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "0fea93e444c9b51c2f25a282bb42e76fa4a26d720f555e57abfaa6accf81114a",
+					"line": 14,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "MissingAttribute",
+					"search_key": "metadata.name={{cp01-demo}}.spec.template.metadata.annotations",
+					"search_line": -1,
+					"search_value": "Deploymentcontainers0",
+					"expected_value": "metadata.name={{cp01-demo}}.spec.template.metadata.annotations should specify an AppArmor profile for container {{app}}",
+					"actual_value": "metadata.name={{cp01-demo}}.spec.template.metadata.annotations does not specify an AppArmor profile for container {{app}}"
+				}
+			]
+		},
+		{
+			"query_name": "Pod or Container Without LimitRange",
+			"query_id": "4a20ebac-1060-4c81-95d1-1f7f620e983b",
+			"query_url": "https://kubernetes.io/docs/concepts/policy/limit-range/",
+			"severity": "LOW",
+			"platform": "Kubernetes",
+			"cwe": "400",
+			"risk_score": "2.8",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Each namespace should have a LimitRange policy associated to ensure that resource allocations of Pods, Containers and PersistentVolumeClaims do not exceed the defined boundaries",
+			"description_id": "142ed21f",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "e1fd8cddf79c23c1f68fb166dba3769f8bf20efb05ec02791e9294334db61c44",
+					"line": 5,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "MissingAttribute",
+					"search_key": "metadata.name={{cp01-demo}}",
+					"search_line": -1,
+					"search_value": "Deployment",
+					"expected_value": "metadata.name={{cp01-demo}} has a 'LimitRange' policy associated",
+					"actual_value": "metadata.name={{cp01-demo}} does not have a 'LimitRange' policy associated"
+				}
+			]
+		},
+		{
+			"query_name": "Pod or Container Without ResourceQuota",
+			"query_id": "48a5beba-e4c0-4584-a2aa-e6894e4cf424",
+			"query_url": "https://kubernetes.io/docs/concepts/policy/resource-quotas/",
+			"severity": "LOW",
+			"platform": "Kubernetes",
+			"cwe": "400",
+			"risk_score": "2.8",
+			"cloud_provider": "COMMON",
+			"category": "Insecure Configurations",
+			"experimental": false,
+			"description": "Each namespace should have a ResourceQuota policy associated to limit the total amount of resources Pods, Containers and PersistentVolumeClaims can consume",
+			"description_id": "86499ed5",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "8bccb1b00d0fb0a901c874fc692667d9728ce56f6a21a67385f30665a978ff05",
+					"line": 5,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "MissingAttribute",
+					"search_key": "metadata.name={{cp01-demo}}",
+					"search_line": -1,
+					"search_value": "Deployment",
+					"expected_value": "metadata.name={{cp01-demo}} has a 'ResourceQuota' policy associated",
+					"actual_value": "metadata.name={{cp01-demo}} does not have a 'ResourceQuota' policy associated"
+				}
+			]
+		},
+		{
+			"query_name": "Root Container Not Mounted Read-only",
+			"query_id": "a9c2f49d-0671-4fc9-9ece-f4e261e128d0",
+			"query_url": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
+			"severity": "LOW",
+			"platform": "Kubernetes",
+			"cwe": "668",
+			"risk_score": "3.6",
+			"cloud_provider": "COMMON",
+			"category": "Build Process",
+			"experimental": false,
+			"description": "Check if the root container filesystem is not being mounted as read-only.",
+			"description_id": "0d2df1e5",
+			"files": [
+				{
+					"file_name": "../../workspace/vulneravel/deployment.yaml",
+					"similarity_id": "7d7f7b2b47d3f8222e4c45b878b71995693b63753b89ef3f36d521cbe9563aac",
+					"line": 33,
+					"resource_type": "Deployment",
+					"resource_name": "cp01-demo",
+					"issue_type": "IncorrectValue",
+					"search_key": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.readOnlyRootFilesystem",
+					"search_line": 33,
+					"search_value": "Deployment",
+					"expected_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.readOnlyRootFilesystem is true",
+					"actual_value": "metadata.name={{cp01-demo}}.spec.template.spec.containers.name={{app}}.securityContext.readOnlyRootFilesystem is false"
+				}
+			]
+		}
+	]
+}
