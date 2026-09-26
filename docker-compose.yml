@@ -59,6 +59,9 @@ services:
     image: projectdiscovery/nuclei:v3.11.1@sha256:582d5546902e67052097cb2d07296c642d50a1afc5e44623cb038845df9a32eb
     profiles: [tools]
     networks: [lab]
+    environment:
+      # O laboratório usa somente o template local, sem acesso à internet.
+      DISABLE_NUCLEI_TEMPLATES_PUBLIC_DOWNLOAD: "true"
     volumes:
       - ./nuclei:/templates:ro
       - ./nuclei/.nuclei-ignore:/root/.config/nuclei/.nuclei-ignore:ro
