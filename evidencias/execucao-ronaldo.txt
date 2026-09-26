@@ -1,0 +1,628 @@
+Transcrição fornecida por Ronaldo em 26/09/2026. Nome do computador anonimizado e espaços finais removidos; repetições e saídas preservadas.
+
+comandos executados e output
+
+[terminal de Ronaldo — CP01-DevSecOps] % git branch --show-current
+feat/validacao-ronaldo
+[terminal de Ronaldo — CP01-DevSecOps] % git rev-parse HEAD
+git status --short
+sw_vers
+uname -m
+git --version
+python3 --version
+docker version
+docker compose version
+docker compose config --quiet
+76fbf5353bfa160db6b9f925d9359fd5acf36ed5
+?? docs/BASE-PARA-PESQUISA-E-SLIDES.md
+?? docs/ROTEIRO-VALIDACAO-RONALDO.md
+ProductName:            macOS
+ProductVersion:         26.5.2
+BuildVersion:           25F84
+arm64
+git version 2.50.1 (Apple Git-155)
+Python 3.14.7
+Client:
+ Version:           29.2.1
+ API version:       1.53
+ Go version:        go1.25.6
+ Git commit:        a5c7197
+ Built:             Mon Feb  2 17:16:37 2026
+ OS/Arch:           darwin/arm64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.63.0 (220185)
+ Engine:
+  Version:          29.2.1
+  API version:      1.53 (minimum version 1.44)
+  Go version:       go1.25.6
+  Git commit:       6bc6209
+  Built:            Mon Feb  2 17:16:47 2026
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          v2.2.1
+  GitCommit:        dea7da592f5d1d2b7755e3a161be07f43fad8f75
+ runc:
+  Version:          1.3.4
+  GitCommit:        v1.3.4-0-gd6d73eb8
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+Docker Compose version v5.0.2
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose pull trivy kics verify
+[+] pull 3/3
+ ✔ Image aquasec/trivy:0.74.0@sha256:62b1e65e8869bc4b4c6aa4fa2b21595256c7c2f6018a9d9ad61caf87187c1969   Pulled    4.5s
+ ✔ Image python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9       Pulled    4.5s
+ ✔ Image checkmarx/kics:v2.1.20@sha256:3e5a268eb8adda2e5a483c9359ddfc4cd520ab856a7076dc0b1d8784a37e2602 Pulled    4.5s
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose run --rm trivy image --download-db-only
+Container cp01-devsecops-trivy-run-3b5ecbc8a3cf Creating
+Container cp01-devsecops-trivy-run-3b5ecbc8a3cf Created
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+
+[terminal de Ronaldo — CP01-DevSecOps] % mkdir -p work
+[terminal de Ronaldo — CP01-DevSecOps] % script -q work/validacao-ronaldo-terminal.log
+[terminal de Ronaldo — CP01-DevSecOps] %
+VALIDACAO_INICIO=$(date +%s)
+date -u
+docker compose run --rm trivy --version
+docker compose run --rm kics version
+Sat Sep 26 03:20:52 UTC 2026
+Container cp01-devsecops-trivy-run-e60f15d4139e Creating
+Container cp01-devsecops-trivy-run-e60f15d4139e Created
+Version: 0.74.0
+Vulnerability DB:
+  Version: 2
+  UpdatedAt: 2026-09-25 13:09:04.976152063 +0000 UTC
+  NextUpdate: 2026-09-26 13:09:04.976151642 +0000 UTC
+  DownloadedAt: 2026-09-25 17:17:23.98700293 +0000 UTC
+Container cp01-devsecops-kics-run-ec0a1f87a626 Creating
+Container cp01-devsecops-kics-run-ec0a1f87a626 Created
+Keeping Infrastructure as Code Secure v2.1.20
+
+
+[terminal de Ronaldo — CP01-DevSecOps] % mkdir -p work
+[terminal de Ronaldo — CP01-DevSecOps] % script -q work/validacao-ronaldo-terminal.log
+[terminal de Ronaldo — CP01-DevSecOps] %
+VALIDACAO_INICIO=$(date +%s)
+date -u
+docker compose run --rm trivy --version
+docker compose run --rm kics version
+Sat Sep 26 03:20:52 UTC 2026
+Container cp01-devsecops-trivy-run-e60f15d4139e Creating
+Container cp01-devsecops-trivy-run-e60f15d4139e Created
+Version: 0.74.0
+Vulnerability DB:
+  Version: 2
+  UpdatedAt: 2026-09-25 13:09:04.976152063 +0000 UTC
+  NextUpdate: 2026-09-26 13:09:04.976151642 +0000 UTC
+  DownloadedAt: 2026-09-25 17:17:23.98700293 +0000 UTC
+Container cp01-devsecops-kics-run-ec0a1f87a626 Creating
+Container cp01-devsecops-kics-run-ec0a1f87a626 Created
+Keeping Infrastructure as Code Secure v2.1.20
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose run --rm trivy fs --skip-db-update --offline-scan --scanners vuln --format json --output /reports/trivy/vulneravel/results.json /workspace/vulneravel/requirements.txt
+docker compose run --rm trivy convert /reports/trivy/vulneravel/results.json
+Container cp01-devsecops-trivy-run-03f5c9b434c7 Creating
+Container cp01-devsecops-trivy-run-03f5c9b434c7 Created
+2026-09-26T03:37:17Z    INFO    [vuln] Vulnerability scanning is enabled
+2026-09-26T03:37:17Z    WARN    [pip] Unable to find python `site-packages` directory. License detection is skipped. err="unable to find path to Python executable"
+2026-09-26T03:37:17Z    INFO    Number of language-specific files       num=1
+2026-09-26T03:37:17Z    INFO    [pip] Detecting vulnerabilities...
+Container cp01-devsecops-trivy-run-faf802e637c5 Creating
+Container cp01-devsecops-trivy-run-faf802e637c5 Created
+2026-09-26T03:37:18Z    WARN    [report] No enabled scanners found. Summary table will not be displayed.
+
+requirements.txt (pip)
+
+Total: 3 (UNKNOWN: 0, LOW: 0, MEDIUM: 3, HIGH: 0, CRITICAL: 0)
+
+┌─────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│ Library │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                            Title                             │
+├─────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ Jinja2  │ CVE-2024-56201 │ MEDIUM   │ fixed  │ 3.1.4             │ 3.1.5         │ jinja2: Jinja has a sandbox breakout through malicious       │
+│         │                │          │        │                   │               │ filenames                                                    │
+│         │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-56201                   │
+│         ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│         │ CVE-2024-56326 │          │        │                   │               │ jinja2: Jinja has a sandbox breakout through indirect        │
+│         │                │          │        │                   │               │ reference to format method...                                │
+│         │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-56326                   │
+│         ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│         │ CVE-2025-27516 │          │        │                   │ 3.1.6         │ jinja2: Jinja sandbox breakout through attr filter selecting │
+│         │                │          │        │                   │               │ format method                                                │
+│         │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-27516                   │
+└─────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose run --rm kics scan -p /workspace/vulneravel/deployment.yaml --type Kubernetes --report-formats json,sarif --output-path /reports/kics/vulneravel --fail-on high,critical --no-progress --no-color
+printf 'Saída do KICS: %s\n' "$?"
+Container cp01-devsecops-kics-run-ff70dc412f67 Creating
+Container cp01-devsecops-kics-run-ff70dc412f67 Created
+
+
+
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK
+
+
+
+
+Scanning with Keeping Infrastructure as Code Secure v2.1.20
+
+
+
+
+
+Root Container Not Mounted Read-only, Severity: LOW, Results: 1
+Description: Check if the root container filesystem is not being mounted as read-only.
+Platform: Kubernetes
+CWE: 668
+Risk Score: 3.6
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/a9c2f49d-0671-4fc9-9ece-f4e261e128d0
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:33
+
+                032:             allowPrivilegeEscalation: true
+                033:             readOnlyRootFilesystem: false
+                034:             capabilities:
+
+
+Pod or Container Without ResourceQuota, Severity: LOW, Results: 1
+Description: Each namespace should have a ResourceQuota policy associated to limit the total amount of resources Pods, Containers and PersistentVolumeClaims can consume
+Platform: Kubernetes
+CWE: 400
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/48a5beba-e4c0-4584-a2aa-e6894e4cf424
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:5
+
+                004: metadata:
+                005:   name: cp01-demo
+                006:   labels:
+
+
+Pod or Container Without LimitRange, Severity: LOW, Results: 1
+Description: Each namespace should have a LimitRange policy associated to ensure that resource allocations of Pods, Containers and PersistentVolumeClaims do not exceed the defined boundaries
+Platform: Kubernetes
+CWE: 400
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/4a20ebac-1060-4c81-95d1-1f7f620e983b
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:5
+
+                004: metadata:
+                005:   name: cp01-demo
+                006:   labels:
+
+
+Missing AppArmor Profile, Severity: LOW, Results: 1
+Description: Containers should be configured with an AppArmor profile to enforce fine-grained access control over low-level system resources
+Platform: Kubernetes
+CWE: 284
+Risk Score: 3.3
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/8b36775e-183d-4d46-b0f7-96a6f34a723f
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:14
+
+                013:   template:
+                014:     metadata:
+                015:       labels:
+
+
+Image Without Digest, Severity: LOW, Results: 1
+Description: Images should be specified together with their digests to ensure integrity
+Platform: Kubernetes
+CWE: 665
+Risk Score: 4.1
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/7c81d34c-8e5a-402b-9798-9f442630e678
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:27
+
+                026:         - name: app
+                027:           image: cp01-devsecops/app:lab-v1
+                028:           ports:
+
+
+Image Pull Policy Of The Container Is Not Set To Always, Severity: LOW, Results: 1
+Description: Image Pull Policy of the container must be defined and set to Always
+Platform: Kubernetes
+CWE: 665
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/caa3479d-885d-4882-9aac-95e5e78ef5c2
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:26
+
+                025:       containers:
+                026:         - name: app
+                027:           image: cp01-devsecops/app:lab-v1
+
+
+Using Unrecommended Namespace, Severity: MEDIUM, Results: 1
+Description: Namespaces like 'default', 'kube-system' or 'kube-public' should not be used
+Platform: Kubernetes
+CWE: 665
+Risk Score: 5.5
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/611ab018-c4aa-4ba2-b0f6-a448337509a6
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:5
+
+                004: metadata:
+                005:   name: cp01-demo
+                006:   labels:
+
+
+Privilege Escalation Allowed, Severity: HIGH, Results: 1
+Description: Containers should not run with allowPrivilegeEscalation in order to prevent them from gaining more privileges than their parent process
+Platform: Kubernetes
+CWE: 269
+Risk Score: 7.7
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/5572cc5e-1e4c-4113-92a6-7a8a3bd25e6d
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:32
+
+                031:             privileged: true
+                032:             allowPrivilegeEscalation: true
+                033:             readOnlyRootFilesystem: false
+
+
+Container Is Privileged, Severity: HIGH, Results: 1
+Description: Privileged containers lack essential security restrictions and should be avoided by removing the 'privileged' flag or by changing its value to false
+Platform: Kubernetes
+CWE: 269
+Risk Score: 7.7
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/dd29336b-fe57-445b-a26e-e6aa867ae609
+
+        [1]: ../../workspace/vulneravel/deployment.yaml:31
+
+                030:           securityContext:
+                031:             privileged: true
+                032:             allowPrivilegeEscalation: true
+
+
+
+Results Summary:
+CRITICAL: 0
+HIGH: 2
+MEDIUM: 1
+LOW: 6
+INFO: 0
+TOTAL: 9
+
+
+Saída do KICS: 50
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose run --rm trivy fs --skip-db-update --offline-scan --scanners vuln --format json --output /reports/trivy/corrigido/results.json /workspace/corrigido/requirements.txt
+docker compose run --rm trivy convert --severity HIGH,CRITICAL --exit-code 1 /reports/trivy/corrigido/results.json
+printf 'Saída do gate Trivy: %s\n' "$?"
+docker compose run --rm kics scan -p /workspace/corrigido/deployment.yaml --type Kubernetes --report-formats json,sarif --output-path /reports/kics/corrigido --fail-on high,critical --no-progress --no-color
+printf 'Saída do KICS: %s\n' "$?"
+Container cp01-devsecops-trivy-run-5ad6c32e7da6 Creating
+Container cp01-devsecops-trivy-run-5ad6c32e7da6 Created
+2026-09-26T03:39:00Z    INFO    [vuln] Vulnerability scanning is enabled
+2026-09-26T03:39:00Z    WARN    [pip] Unable to find python `site-packages` directory. License detection is skipped. err="unable to find path to Python executable"
+2026-09-26T03:39:00Z    INFO    Number of language-specific files       num=1
+2026-09-26T03:39:00Z    INFO    [pip] Detecting vulnerabilities...
+Container cp01-devsecops-trivy-run-e1848d2d7792 Creating
+Container cp01-devsecops-trivy-run-e1848d2d7792 Created
+2026-09-26T03:39:00Z    WARN    [report] No enabled scanners found. Summary table will not be displayed.
+Saída do gate Trivy: 0
+Container cp01-devsecops-kics-run-21b619eed461 Creating
+Container cp01-devsecops-kics-run-21b619eed461 Created
+
+
+
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK
+
+
+
+
+Scanning with Keeping Infrastructure as Code Secure v2.1.20
+
+
+
+
+
+Pod or Container Without ResourceQuota, Severity: LOW, Results: 1
+Description: Each namespace should have a ResourceQuota policy associated to limit the total amount of resources Pods, Containers and PersistentVolumeClaims can consume
+Platform: Kubernetes
+CWE: 400
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/48a5beba-e4c0-4584-a2aa-e6894e4cf424
+
+        [1]: ../../workspace/corrigido/deployment.yaml:5
+
+                004: metadata:
+                005:   name: cp01-demo
+                006:   labels:
+
+
+Pod or Container Without LimitRange, Severity: LOW, Results: 1
+Description: Each namespace should have a LimitRange policy associated to ensure that resource allocations of Pods, Containers and PersistentVolumeClaims do not exceed the defined boundaries
+Platform: Kubernetes
+CWE: 400
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/4a20ebac-1060-4c81-95d1-1f7f620e983b
+
+        [1]: ../../workspace/corrigido/deployment.yaml:5
+
+                004: metadata:
+                005:   name: cp01-demo
+                006:   labels:
+
+
+Missing AppArmor Profile, Severity: LOW, Results: 1
+Description: Containers should be configured with an AppArmor profile to enforce fine-grained access control over low-level system resources
+Platform: Kubernetes
+CWE: 284
+Risk Score: 3.3
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/8b36775e-183d-4d46-b0f7-96a6f34a723f
+
+        [1]: ../../workspace/corrigido/deployment.yaml:14
+
+                013:   template:
+                014:     metadata:
+                015:       labels:
+
+
+Image Without Digest, Severity: LOW, Results: 1
+Description: Images should be specified together with their digests to ensure integrity
+Platform: Kubernetes
+CWE: 665
+Risk Score: 4.1
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/7c81d34c-8e5a-402b-9798-9f442630e678
+
+        [1]: ../../workspace/corrigido/deployment.yaml:27
+
+                026:         - name: app
+                027:           image: cp01-devsecops/app:lab-v1
+                028:           ports:
+
+
+Image Pull Policy Of The Container Is Not Set To Always, Severity: LOW, Results: 1
+Description: Image Pull Policy of the container must be defined and set to Always
+Platform: Kubernetes
+CWE: 665
+Risk Score: 2.8
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/caa3479d-885d-4882-9aac-95e5e78ef5c2
+
+        [1]: ../../workspace/corrigido/deployment.yaml:26
+
+                025:       containers:
+                026:         - name: app
+                027:           image: cp01-devsecops/app:lab-v1
+
+
+Using Unrecommended Namespace, Severity: MEDIUM, Results: 1
+Description: Namespaces like 'default', 'kube-system' or 'kube-public' should not be used
+Platform: Kubernetes
+CWE: 665
+Risk Score: 5.5
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/kubernetes-queries/611ab018-c4aa-4ba2-b0f6-a448337509a6
+
+        [1]: ../../workspace/corrigido/deployment.yaml:5
+
+                004: metadata:
+                005:   name: cp01-demo
+                006:   labels:
+
+
+
+Results Summary:
+CRITICAL: 0
+HIGH: 0
+MEDIUM: 1
+LOW: 5
+INFO: 0
+TOTAL: 6
+
+Saída do KICS: 0
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose run --rm verify python scripts/comprovante.py
+printf 'Tempo do fluxo pessoal: %s segundos\n' "$(( $(date +%s) - VALIDACAO_INICIO ))"
+cp reports/comprovante.json evidencias/comprovante-ronaldo.json
+Container cp01-devsecops-verify-run-bd847d12927d Creating
+Container cp01-devsecops-verify-run-bd847d12927d Created
+{
+  "vulneravel": {
+    "trivy_created_at": "2026-09-26T03:37:17.533430137Z",
+    "trivy_vulnerabilities": 3,
+    "jinja_cve_2025_27516_fixed_version": "3.1.6",
+    "kics_started_at": "2026-09-26T03:38:11.027738092Z",
+    "kics_counts": {
+      "CRITICAL": 0,
+      "HIGH": 2,
+      "INFO": 0,
+      "LOW": 6,
+      "MEDIUM": 1,
+      "TRACE": 0
+    },
+    "kics_high_rules": [
+      "Container Is Privileged",
+      "Privilege Escalation Allowed"
+    ]
+  },
+  "corrigido": {
+    "trivy_created_at": "2026-09-26T03:39:00.547275212Z",
+    "trivy_vulnerabilities": 0,
+    "jinja_cve_2025_27516_fixed_version": null,
+    "kics_started_at": "2026-09-26T03:39:01.604437588Z",
+    "kics_counts": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "INFO": 0,
+      "LOW": 5,
+      "MEDIUM": 1,
+      "TRACE": 0
+    },
+    "kics_high_rules": []
+  }
+}
+COMPROVANTE GERADO: reports/comprovante.json — salve este output e responda às duas perguntas.
+Tempo do fluxo pessoal: 1136 segundos
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+
+[terminal de Ronaldo — CP01-DevSecOps] % python3 scripts/run_scan.py vulneravel --offline
+printf 'Saída do executor vulnerável: %s\n' "$?"
+python3 scripts/run_scan.py corrigido --offline
+printf 'Saída do executor corrigido: %s\n' "$?"
+docker compose run --rm verify
+python3 -m unittest scripts.test_gate -v
+python3 scripts/verify_reports.py
+git diff --check
+vulneravel: FAIL | bloqueantes HIGH/CRITICAL: 2
+Trivy: {'MEDIUM': 3} KICS: {'CRITICAL': 0, 'HIGH': 2, 'INFO': 0, 'LOW': 6, 'MEDIUM': 1, 'TRACE': 0}
+Evidências: reports/gate/vulneravel
+Saída do executor vulnerável: 1
+corrigido: PASS | bloqueantes HIGH/CRITICAL: 0
+Trivy: {} KICS: {'CRITICAL': 0, 'HIGH': 0, 'INFO': 0, 'LOW': 5, 'MEDIUM': 1, 'TRACE': 0}
+Evidências: reports/gate/corrigido
+Saída do executor corrigido: 0
+Container cp01-devsecops-verify-run-5027df72f4d5 Creating
+Container cp01-devsecops-verify-run-5027df72f4d5 Created
+OK: vulneravel -> FAIL, 2 bloqueantes
+OK: corrigido -> PASS, 0 bloqueantes
+test_invalid_variant_is_rejected_before_execution (scripts.test_gate.GateSafetyTests.test_invalid_variant_is_rejected_before_execution) ... ok
+test_success_exit_without_fresh_reports_is_error (scripts.test_gate.GateSafetyTests.test_success_exit_without_fresh_reports_is_error) ... corrigido: ERROR | bloqueantes HIGH/CRITICAL: 0
+Trivy: {} KICS: {}
+ERRO: Relatório Trivy inválido: [Errno 2] No such file or directory: '/private/var/folders/1y/jw35vwm94nvgcn3jywkwsrqm0000gn/T/tmp0_ydc9ie/reports/trivy/corrigido/results.json'
+ERRO: Relatório KICS inválido: [Errno 2] No such file or directory: '/private/var/folders/1y/jw35vwm94nvgcn3jywkwsrqm0000gn/T/tmp0_ydc9ie/reports/kics/corrigido/results.json'
+Evidências: reports/gate/corrigido
+ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.049s
+
+OK
+OK: vulneravel -> FAIL, 2 bloqueantes
+OK: corrigido -> PASS, 0 bloqueantes
+reports/kics/corrigido/scan.log:1: trailing whitespace.
++ Container cp01-devsecops-kics-run-9e7f4fc44300 Creating
+reports/kics/corrigido/scan.log:2: trailing whitespace.
++ Container cp01-devsecops-kics-run-9e7f4fc44300 Created
+reports/kics/vulneravel/scan.log:1: trailing whitespace.
++ Container cp01-devsecops-kics-run-40947f63d9be Creating
+reports/kics/vulneravel/scan.log:2: trailing whitespace.
++ Container cp01-devsecops-kics-run-40947f63d9be Created
+reports/trivy/corrigido/cyclonedx.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-ea7bb94db689 Creating
+reports/trivy/corrigido/cyclonedx.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-ea7bb94db689 Created
+reports/trivy/corrigido/gate.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-184c6277e90b Creating
+reports/trivy/corrigido/gate.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-184c6277e90b Created
+reports/trivy/corrigido/sarif.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-3feca60b0e22 Creating
+reports/trivy/corrigido/sarif.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-3feca60b0e22 Created
+reports/trivy/corrigido/scan.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-e2ba6e96dcb7 Creating
+reports/trivy/corrigido/scan.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-e2ba6e96dcb7 Created
+reports/trivy/vulneravel/cyclonedx.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-a62926478dfd Creating
+reports/trivy/vulneravel/cyclonedx.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-a62926478dfd Created
+reports/trivy/vulneravel/gate.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-0752cd15e51b Creating
+reports/trivy/vulneravel/gate.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-0752cd15e51b Created
+reports/trivy/vulneravel/sarif.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-edc411e2dc89 Creating
+reports/trivy/vulneravel/sarif.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-edc411e2dc89 Created
+reports/trivy/vulneravel/scan.log:1: trailing whitespace.
++ Container cp01-devsecops-trivy-run-0e171444cc9a Creating
+reports/trivy/vulneravel/scan.log:2: trailing whitespace.
++ Container cp01-devsecops-trivy-run-0e171444cc9a Created
+[terminal de Ronaldo — CP01-DevSecOps] %
+
+ ✔ Image projectdiscovery/nuclei:v3.11.1@sha256:582d5546902e67052097cb2d07296c642d50a1afc5e44623cb03884... Pulled 1.3s
+[+] Building 0.4s (18/18) FINISHED
+ => [internal] load local bake definitions                                                                       0.0s
+ => => reading from stdin 1.41kB                                                                                 0.0s
+ => [app-vulneravel internal] load build definition from Dockerfile                                              0.0s
+ => => transferring dockerfile: 738B                                                                             0.0s
+ => [app-vulneravel internal] load metadata for docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2  0.0s
+ => [app-corrigido internal] load .dockerignore                                                                  0.0s
+ => => transferring context: 99B                                                                                 0.0s
+ => [app-corrigido 1/5] FROM docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83  0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94c  0.0s
+ => [app-corrigido internal] load build context                                                                  0.0s
+ => => transferring context: 221B                                                                                0.0s
+ => [app-vulneravel internal] load build context                                                                 0.0s
+ => => transferring context: 223B                                                                                0.0s
+ => CACHED [app-vulneravel 2/5] WORKDIR /app                                                                     0.0s
+ => CACHED [app-corrigido 3/5] COPY fixtures/corrigido/requirements.txt /app/requirements.txt                    0.0s
+ => CACHED [app-corrigido 4/5] RUN pip install --no-cache-dir -r /app/requirements.txt     && groupadd --gid 10  0.0s
+ => CACHED [app-corrigido 5/5] COPY app/server.py /app/server.py                                                 0.0s
+ => CACHED [app-vulneravel 3/5] COPY fixtures/vulneravel/requirements.txt /app/requirements.txt                  0.0s
+ => CACHED [app-vulneravel 4/5] RUN pip install --no-cache-dir -r /app/requirements.txt     && groupadd --gid 1  0.0s
+ => CACHED [app-vulneravel 5/5] COPY app/server.py /app/server.py                                                0.0s
+ => [app-corrigido] exporting to image                                                                           0.1s
+ => => exporting layers                                                                                          0.0s
+ => => exporting manifest sha256:83abd40f719ac8fbab87a46cf917c109486d09c61d37e76cea13c1630a03806d                0.0s
+ => => exporting config sha256:312ee8a5026f2c1de20b4d21cc2f3cad499b534782f904d61160d443b39bab1c                  0.0s
+ => => exporting attestation manifest sha256:cad2d44c2c2366c22103fc3fc394628031109ccc724a40e65a0250b53e43adfe    0.0s
+ => => exporting manifest list sha256:318d73df7fb00657bae9879e815080ef2ebc06b7fc39c1d80a44a8a77d96028b           0.0s
+ => => naming to docker.io/library/cp01-devsecops-app:corrigido                                                  0.0s
+ => => unpacking to docker.io/library/cp01-devsecops-app:corrigido                                               0.0s
+ => [app-vulneravel] exporting to image                                                                          0.1s
+ => => exporting layers                                                                                          0.0s
+ => => exporting manifest sha256:d3641e38685e0ba345dfc256cb4579d87cc99feb32661d1ed5a9b21253dd5a19                0.0s
+ => => exporting config sha256:8b37c7c6a21defd6b18ff8e65833fb8b5d921b01049959d7aef422638cb9a9bb                  0.0s
+ => => exporting attestation manifest sha256:321c892cfed594e9ae9e283348eaee6e4c54d86d6ed984a8dddd7b1d4736157b    0.0s
+ => => exporting manifest list sha256:2abed0817f83cfd6a80e9735a8871f1041b04c8f15b4a15918bd37f0eee4dcb2           0.0s
+ => => naming to docker.io/library/cp01-devsecops-app:vulneravel                                                 0.0s
+ => => unpacking to docker.io/library/cp01-devsecops-app:vulneravel                                              0.0s
+ => [app-corrigido] resolving provenance for metadata file                                                       0.0s
+ => [app-vulneravel] resolving provenance for metadata file                                                      0.0s
+[+] up 4/4
+ ✔ Image cp01-devsecops-app:corrigido        Built                                                                0.5s
+ ✔ Image cp01-devsecops-app:vulneravel       Built                                                                0.5s
+ ✔ Container cp01-devsecops-app-vulneravel-1 Healthy                                                              6.9s
+ ✔ Container cp01-devsecops-app-corrigido-1  Healthy                                                              6.9s
+Nuclei vulneravel: 1 achados; validação=OK
+Nuclei corrigido: 0 achados; validação=OK
+[terminal de Ronaldo — CP01-DevSecOps] % docker compose --profile sonar up -d sonarqube
+python3 scripts/setup_sonar.py
+python3 scripts/run_sonar.py
+[+] up 1/1
+ ✔ Container cp01-devsecops-sonarqube-1 Running                                                                   0.0s
+SonarQube local configurado. Credenciais somente no .env ignorado pelo Git.
+SonarQube: 1 issues abertas, 1 encerradas, 0 hotspots. Tempo: 15.907s
+[terminal de Ronaldo — CP01-DevSecOps] %

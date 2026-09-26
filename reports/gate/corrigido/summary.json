@@ -1,6 +1,6 @@
 {
   "variant": "corrigido",
-  "started_at": "2026-09-25T17:21:27.242990+00:00",
+  "started_at": "2026-09-26T03:40:53.763107+00:00",
   "steps": {
     "trivy_scan": {
       "command": [
@@ -25,7 +25,7 @@
         "/workspace/corrigido/requirements.txt"
       ],
       "exit_code": 0,
-      "seconds": 0.452
+      "seconds": 0.306
     },
     "trivy_sarif": {
       "command": [
@@ -43,7 +43,7 @@
         "/reports/trivy/corrigido/results.json"
       ],
       "exit_code": 0,
-      "seconds": 0.295
+      "seconds": 0.337
     },
     "trivy_cyclonedx": {
       "command": [
@@ -61,7 +61,7 @@
         "/reports/trivy/corrigido/results.json"
       ],
       "exit_code": 0,
-      "seconds": 0.384
+      "seconds": 0.315
     },
     "trivy_gate": {
       "command": [
@@ -79,7 +79,7 @@
         "/reports/trivy/corrigido/results.json"
       ],
       "exit_code": 0,
-      "seconds": 0.301
+      "seconds": 0.305
     },
     "kics_scan": {
       "command": [
@@ -104,7 +104,7 @@
         "--no-color"
       ],
       "exit_code": 0,
-      "seconds": 1.291
+      "seconds": 1.276
     }
   },
   "errors": [],
@@ -132,5 +132,5 @@
     "fixtures/corrigido/deployment.yaml": "ecf84f995ae129e630decf4a8fa2f3215657035b9b38913a6d561882a38e951b",
     "fixtures/corrigido/requirements.txt": "2fc67b68124c999cb0d1d2baf15adc8e5b291a93cb39784fb356a989e77d2677"
   },
-  "finished_at": "2026-09-25T17:21:29.969426+00:00"
+  "finished_at": "2026-09-26T03:40:56.307550+00:00"
 }

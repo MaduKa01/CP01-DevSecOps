@@ -6,9 +6,12 @@ Coordenação: Ronaldo. Validação do laboratório: Cauê. Documento: Edmar. Ap
 ## Comece aqui
 
 - **Turma:** seguir [LAB.md](LAB.md). O laboratório principal usa Trivy + KICS e não exige Python instalado no computador.
+- **Documentação do zero:** [guia para Edmar](docs/GUIA-PARA-DOCUMENTACAO.md).
+- **Montagem dos slides:** [roteiro de 28 slides para Pedro](docs/ROTEIRO-APRESENTACAO-28-SLIDES.md).
+- **Validações:** [Windows — Cauê](evidencias/validacao-kaue.md) e [Mac — Ronaldo](evidencias/validacao-ronaldo.md).
 - **Grupo:** ver [plano de responsabilidades](docs/PLANO-DO-GRUPO.md), [achados](evidencias/achados.md), [métricas](evidencias/metricas.md) e [pipeline](evidencias/pipeline.md).
 - **Apresentação:** segunda, 28/09/2026, às 19h. Meta de fechamento: sábado, 26/09, às 19h.
-- Este repositório contém a base técnica e evidências. Pesquisa acadêmica final, slides, vídeo e ensaio independente são entregas separadas ainda a concluir pelo grupo.
+- Este repositório contém a base técnica e evidências. Pesquisa acadêmica final, slides, vídeo e ensaio guiado são entregas separadas ainda a concluir pelo grupo.
 
 ## Como o projeto funciona
 
@@ -41,7 +44,7 @@ analisa `app/server.py`. São execuções complementares, fora do gate principal
 | Nuclei | 1 MEDIUM no `/debug` | 0 correspondências no mesmo template |
 | SonarQube | S4790 (hash fraco) e S5332 (HTTP) | S4790 encerrada após SHA-256; S5332 permanece aberta |
 
-Resultados de 25/09/2026. O banco do Trivy pode evoluir; a versão do scanner está fixada,
+Resultados reproduzidos em 25 e 26/09/2026. O banco do Trivy pode evoluir; a versão do scanner está fixada,
 mas isso não congela novos avisos. Verde significa cumprir o gate HIGH/CRITICAL,
 não ausência de todos os problemas. A análise SCA não cobre a imagem base do sistema operacional.
 

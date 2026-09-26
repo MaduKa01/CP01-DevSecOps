@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-09-25T17:23:58.250762+00:00",
+  "started_at": "2026-09-26T03:41:37.599461+00:00",
   "scope": "Containers locais app-vulneravel e app-corrigido; um template próprio",
   "runs": [
     {
@@ -22,7 +22,7 @@
         "-no-color",
         "-stats"
       ],
-      "seconds": 0.722,
+      "seconds": 180.892,
       "exit_code": 0,
       "matches": 1,
       "expected_matches": 1,
@@ -48,7 +48,7 @@
         "-no-color",
         "-stats"
       ],
-      "seconds": 0.633,
+      "seconds": 180.781,
       "exit_code": 0,
       "matches": 0,
       "expected_matches": 0,

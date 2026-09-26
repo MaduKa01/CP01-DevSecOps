@@ -42,4 +42,8 @@ Os relatórios originais baixados dos artifacts ficam em `reports/ci/`. Isso val
 - KICS analisa arquivos; não foi implantado um cluster.
 - Nuclei cobre somente um template criado para a condição demonstrada.
 - SonarQube precisa de servidor e recursos adicionais; por isso ficou fora do lab de 12 minutos.
-- O teste em máquina alheia e o ensaio cronometrado da turma continuam pendentes.
+- O teste em máquina alheia foi concluído por Cauê; o ensaio humano cronometrado da turma continua pendente.
+
+## Execuções posteriores
+
+A reprodução Windows de 25/09 está em `validacao-kaue.md`. A execução pessoal Mac de 26/09 está em `validacao-ronaldo.md`, incluindo o tempo com pausas e o incidente Nuclei. As tabelas acima preservam a medição inicial de 25/09; os relatórios locais em `reports/` foram renovados pela execução de Ronaldo em 26/09.

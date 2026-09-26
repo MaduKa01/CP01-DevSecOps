@@ -1,3 +1,3 @@
- Container cp01-devsecops-trivy-run-1feb051fb6db Creating 
- Container cp01-devsecops-trivy-run-1feb051fb6db Created 
-2026-09-25T17:21:28Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+ Container cp01-devsecops-trivy-run-ea7bb94db689 Creating
+ Container cp01-devsecops-trivy-run-ea7bb94db689 Created
+2026-09-26T03:40:54Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
