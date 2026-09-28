@@ -15,7 +15,7 @@ Atualizada em 26/09/2026. As validações do laboratório por Cauê no Windows e
 
 ## Números que devem coincidir no PDF e nos slides
 
-| Ferramenta | Vulnerável/antes | Corrigido/depois |
+| Ferramenta | Vulnerável/antes | Corrigido/depois 
 |---|---|---|
 | Trivy | 3 MEDIUM | 0 nas dependências declaradas |
 | KICS | 2 HIGH, 1 MEDIUM, 6 LOW | 0 HIGH/CRITICAL, 1 MEDIUM, 5 LOW |
