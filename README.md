@@ -1,7 +1,7 @@
 # CP01 DevSecOps — Grupo 2
 
 Laboratório didático com **SonarQube Community, Trivy, KICS e Nuclei**.
-Coordenação: Ronaldo. Validação do laboratório: Cauê. Documento: Edmar. Apresentação: Pedro.
+Coordenação: Ronaldo. Validação do laboratório: Kauê. Documento: Edmario. Apresentação: Pedro.
 
 ## Comece aqui
 
