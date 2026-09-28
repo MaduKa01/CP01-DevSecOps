@@ -2,7 +2,7 @@ name: Security gate
 
 on:
   push:
-    branches: [main]
+    branches: [main,feat/*]
   pull_request:
   workflow_dispatch:
     inputs:
