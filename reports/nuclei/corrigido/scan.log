@@ -1,5 +1,5 @@
- Container cp01-devsecops-nuclei-run-44400d5682a0 Creating 
- Container cp01-devsecops-nuclei-run-44400d5682a0 Created 
+ Container cp01-devsecops-nuclei-run-98f0b4f08717 Creating
+ Container cp01-devsecops-nuclei-run-98f0b4f08717 Created
 
                      __     _
    ____  __  _______/ /__  (_)
@@ -15,6 +15,6 @@
 [INF] Templates loaded for current scan: 1
 [INF] Targets loaded for current scan: 1
 [0:00:00] | Templates: 1 | Hosts: 1 | RPS: 3 | Matched: 0 | Errors: 0 | Requests: 1/1 (100%)
-[INF] Scan completed in 259.2215ms. No results found.
+[INF] Scan completed in 273.752666ms. No results found.
 [INF] HTTP connections: 1 total, 1 new, 0 reused (0.0%)
 [0:00:00] | Templates: 1 | Hosts: 1 | RPS: 3 | Matched: 0 | Errors: 0 | Requests: 1/1 (100%)

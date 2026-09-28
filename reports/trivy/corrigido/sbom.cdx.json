@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:014028cc-7eb0-4741-9a3e-89103dc3883e",
+  "serialNumber": "urn:uuid:31ad60a7-1d05-4163-9e4e-25e784ae733e",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-09-25T17:21:28+00:00",
+    "timestamp": "2026-09-26T03:40:54+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "e9c6ea62-439b-4f23-b46c-6da507266f17",
+      "bom-ref": "0184178f-7097-4484-8f95-d71e8f8fded6",
       "type": "application",
       "name": "/workspace/corrigido/requirements.txt",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "3de86a45-78c4-4b36-803a-0cf771569c85",
+      "bom-ref": "b5ab2000-80fb-4655-8abd-4a15dea29ae7",
       "type": "application",
       "name": "requirements.txt",
       "properties": [
@@ -76,16 +76,16 @@
   ],
   "dependencies": [
     {
-      "ref": "3de86a45-78c4-4b36-803a-0cf771569c85",
+      "ref": "0184178f-7097-4484-8f95-d71e8f8fded6",
       "dependsOn": [
-        "pkg:pypi/jinja2@3.1.6",
-        "pkg:pypi/markupsafe@3.0.3"
+        "b5ab2000-80fb-4655-8abd-4a15dea29ae7"
       ]
     },
     {
-      "ref": "e9c6ea62-439b-4f23-b46c-6da507266f17",
+      "ref": "b5ab2000-80fb-4655-8abd-4a15dea29ae7",
       "dependsOn": [
-        "3de86a45-78c4-4b36-803a-0cf771569c85"
+        "pkg:pypi/jinja2@3.1.6",
+        "pkg:pypi/markupsafe@3.0.3"
       ]
     },
     {

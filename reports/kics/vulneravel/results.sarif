@@ -27,7 +27,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -37,7 +37,7 @@
 								{
 									"target": {
 										"id": "269",
-										"guid": "3f884a8c-8ddb-4575-97b0-9096c642d7ba",
+										"guid": "445a2e8f-d1f6-473c-b650-3d9a3ee13b5e",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -66,7 +66,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -76,7 +76,7 @@
 								{
 									"target": {
 										"id": "269",
-										"guid": "5e7c5818-7569-44b7-b685-65e4c504cc94",
+										"guid": "f9435661-bbad-430f-b432-15a4b49e85a1",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -105,7 +105,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -115,7 +115,7 @@
 								{
 									"target": {
 										"id": "665",
-										"guid": "cb35855f-6f7b-4405-a240-021e2236a6a3",
+										"guid": "7ff9e671-c96d-48d7-945f-c301568454cd",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -144,7 +144,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -154,7 +154,7 @@
 								{
 									"target": {
 										"id": "665",
-										"guid": "2a302669-07b0-465c-80fb-c37379f15431",
+										"guid": "c66dfee8-f9be-4e10-8101-29b58d2b7415",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -183,7 +183,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -193,7 +193,7 @@
 								{
 									"target": {
 										"id": "665",
-										"guid": "0bfc2326-498a-45a2-b495-f99394b61c63",
+										"guid": "c118cd54-b2a0-4a57-bd56-2d638c347d4e",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -222,7 +222,7 @@
 								{
 									"target": {
 										"id": "CAT001",
-										"index": 11,
+										"index": 3,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -232,7 +232,7 @@
 								{
 									"target": {
 										"id": "284",
-										"guid": "b862cd57-cc6b-4120-84e5-b56da135dda6",
+										"guid": "f96711e3-8fbe-4c12-9e03-d8d863125fa9",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -261,7 +261,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -271,7 +271,7 @@
 								{
 									"target": {
 										"id": "400",
-										"guid": "c2152688-bedd-49cd-8142-07c6350426c2",
+										"guid": "617d2790-1d31-4e16-ac85-91296fe26a3d",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -300,7 +300,7 @@
 								{
 									"target": {
 										"id": "CAT007",
-										"index": 9,
+										"index": 13,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -310,7 +310,7 @@
 								{
 									"target": {
 										"id": "400",
-										"guid": "cfbec851-f3fa-46ab-9c7e-c97baf794717",
+										"guid": "55bb1937-3cf3-4c71-a023-2b3c3f1a5db6",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -339,7 +339,7 @@
 								{
 									"target": {
 										"id": "CAT005",
-										"index": 1,
+										"index": 11,
 										"toolComponent": {
 											"name": "Categories",
 											"guid": "58cdcc6f-fe41-4724-bfb3-131a93df4c3f"
@@ -349,7 +349,7 @@
 								{
 									"target": {
 										"id": "668",
-										"guid": "555f35fe-b19b-44a0-82f8-d9c8c3d09bbf",
+										"guid": "1b6a16a3-d31f-47d6-8157-51860646d5b5",
 										"toolComponent": {
 											"name": "CWE",
 											"guid": "1489b0c4-d7ce-4d31-af66-6382a01202e3"
@@ -604,33 +604,13 @@
 							}
 						},
 						{
-							"name": "Build Process",
-							"id": "CAT005",
+							"name": "Supply-Chain",
+							"id": "CAT013",
 							"shortDescription": {
-								"text": "Insecure configurations when building/deploying"
+								"text": "Dependency version management"
 							},
 							"fullDescription": {
-								"text": "Insecure configurations when building/deploying"
-							}
-						},
-						{
-							"name": "Encryption",
-							"id": "CAT006",
-							"shortDescription": {
-								"text": "Data Security and Encryption configuration"
-							},
-							"fullDescription": {
-								"text": "Data Security and Encryption configuration"
-							}
-						},
-						{
-							"name": "Insecure Defaults",
-							"id": "CAT008",
-							"shortDescription": {
-								"text": "Configurations that are insecure by default"
-							},
-							"fullDescription": {
-								"text": "Configurations that are insecure by default"
+								"text": "Dependency version management"
 							}
 						},
 						{
@@ -641,66 +621,6 @@
 							},
 							"fullDescription": {
 								"text": "List of resources provisioned"
-							}
-						},
-						{
-							"name": "Availability",
-							"id": "CAT002",
-							"shortDescription": {
-								"text": "Reliability and Scalability"
-							},
-							"fullDescription": {
-								"text": "Reliability and Scalability"
-							}
-						},
-						{
-							"name": "Observability",
-							"id": "CAT010",
-							"shortDescription": {
-								"text": "Logging and Monitoring"
-							},
-							"fullDescription": {
-								"text": "Logging and Monitoring"
-							}
-						},
-						{
-							"name": "Resource Management",
-							"id": "CAT011",
-							"shortDescription": {
-								"text": "Resource and privilege limit configuration"
-							},
-							"fullDescription": {
-								"text": "Resource and privilege limit configuration"
-							}
-						},
-						{
-							"name": "Structure and Semantics",
-							"id": "CAT014",
-							"shortDescription": {
-								"text": "Malformed document structure or inadequate semantics"
-							},
-							"fullDescription": {
-								"text": "Malformed document structure or inadequate semantics"
-							}
-						},
-						{
-							"name": "Insecure Configurations",
-							"id": "CAT007",
-							"shortDescription": {
-								"text": "Configurations which expose the application unnecessarily"
-							},
-							"fullDescription": {
-								"text": "Configurations which expose the application unnecessarily"
-							}
-						},
-						{
-							"name": "Secret Management",
-							"id": "CAT012",
-							"shortDescription": {
-								"text": "Secret and Key management"
-							},
-							"fullDescription": {
-								"text": "Secret and Key management"
 							}
 						},
 						{
@@ -724,23 +644,53 @@
 							}
 						},
 						{
-							"name": "Networking and Firewall",
-							"id": "CAT009",
+							"name": "Structure and Semantics",
+							"id": "CAT014",
 							"shortDescription": {
-								"text": "Network port exposure and firewall configuration"
+								"text": "Malformed document structure or inadequate semantics"
 							},
 							"fullDescription": {
-								"text": "Network port exposure and firewall configuration"
+								"text": "Malformed document structure or inadequate semantics"
 							}
 						},
 						{
-							"name": "Supply-Chain",
-							"id": "CAT013",
+							"name": "Availability",
+							"id": "CAT002",
 							"shortDescription": {
-								"text": "Dependency version management"
+								"text": "Reliability and Scalability"
 							},
 							"fullDescription": {
-								"text": "Dependency version management"
+								"text": "Reliability and Scalability"
+							}
+						},
+						{
+							"name": "Insecure Defaults",
+							"id": "CAT008",
+							"shortDescription": {
+								"text": "Configurations that are insecure by default"
+							},
+							"fullDescription": {
+								"text": "Configurations that are insecure by default"
+							}
+						},
+						{
+							"name": "Observability",
+							"id": "CAT010",
+							"shortDescription": {
+								"text": "Logging and Monitoring"
+							},
+							"fullDescription": {
+								"text": "Logging and Monitoring"
+							}
+						},
+						{
+							"name": "Secret Management",
+							"id": "CAT012",
+							"shortDescription": {
+								"text": "Secret and Key management"
+							},
+							"fullDescription": {
+								"text": "Secret and Key management"
 							}
 						},
 						{
@@ -751,6 +701,56 @@
 							},
 							"fullDescription": {
 								"text": "Survivability and Recovery"
+							}
+						},
+						{
+							"name": "Build Process",
+							"id": "CAT005",
+							"shortDescription": {
+								"text": "Insecure configurations when building/deploying"
+							},
+							"fullDescription": {
+								"text": "Insecure configurations when building/deploying"
+							}
+						},
+						{
+							"name": "Encryption",
+							"id": "CAT006",
+							"shortDescription": {
+								"text": "Data Security and Encryption configuration"
+							},
+							"fullDescription": {
+								"text": "Data Security and Encryption configuration"
+							}
+						},
+						{
+							"name": "Insecure Configurations",
+							"id": "CAT007",
+							"shortDescription": {
+								"text": "Configurations which expose the application unnecessarily"
+							},
+							"fullDescription": {
+								"text": "Configurations which expose the application unnecessarily"
+							}
+						},
+						{
+							"name": "Networking and Firewall",
+							"id": "CAT009",
+							"shortDescription": {
+								"text": "Network port exposure and firewall configuration"
+							},
+							"fullDescription": {
+								"text": "Network port exposure and firewall configuration"
+							}
+						},
+						{
+							"name": "Resource Management",
+							"id": "CAT011",
+							"shortDescription": {
+								"text": "Resource and privilege limit configuration"
+							},
+							"fullDescription": {
+								"text": "Resource and privilege limit configuration"
 							}
 						}
 					]
@@ -773,7 +773,7 @@
 					"releaseDateUtc": "2023-10-26",
 					"taxa": [
 						{
-							"guid": "5e7c5818-7569-44b7-b685-65e4c504cc94",
+							"guid": "f9435661-bbad-430f-b432-15a4b49e85a1",
 							"id": "269",
 							"shortDescription": {
 								"text": "The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor."
@@ -784,7 +784,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/269.html"
 						},
 						{
-							"guid": "5e7c5818-7569-44b7-b685-65e4c504cc94",
+							"guid": "f9435661-bbad-430f-b432-15a4b49e85a1",
 							"id": "269",
 							"shortDescription": {
 								"text": "The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor."
@@ -795,7 +795,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/269.html"
 						},
 						{
-							"guid": "0bfc2326-498a-45a2-b495-f99394b61c63",
+							"guid": "c118cd54-b2a0-4a57-bd56-2d638c347d4e",
 							"id": "665",
 							"shortDescription": {
 								"text": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used."
@@ -806,7 +806,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/665.html"
 						},
 						{
-							"guid": "0bfc2326-498a-45a2-b495-f99394b61c63",
+							"guid": "c118cd54-b2a0-4a57-bd56-2d638c347d4e",
 							"id": "665",
 							"shortDescription": {
 								"text": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used."
@@ -817,7 +817,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/665.html"
 						},
 						{
-							"guid": "0bfc2326-498a-45a2-b495-f99394b61c63",
+							"guid": "c118cd54-b2a0-4a57-bd56-2d638c347d4e",
 							"id": "665",
 							"shortDescription": {
 								"text": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used."
@@ -828,7 +828,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/665.html"
 						},
 						{
-							"guid": "b862cd57-cc6b-4120-84e5-b56da135dda6",
+							"guid": "f96711e3-8fbe-4c12-9e03-d8d863125fa9",
 							"id": "284",
 							"shortDescription": {
 								"text": "The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor."
@@ -839,7 +839,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/284.html"
 						},
 						{
-							"guid": "cfbec851-f3fa-46ab-9c7e-c97baf794717",
+							"guid": "55bb1937-3cf3-4c71-a023-2b3c3f1a5db6",
 							"id": "400",
 							"shortDescription": {
 								"text": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
@@ -850,7 +850,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/400.html"
 						},
 						{
-							"guid": "cfbec851-f3fa-46ab-9c7e-c97baf794717",
+							"guid": "55bb1937-3cf3-4c71-a023-2b3c3f1a5db6",
 							"id": "400",
 							"shortDescription": {
 								"text": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
@@ -861,7 +861,7 @@
 							"helpUri": "https://cwe.mitre.org/data/definitions/400.html"
 						},
 						{
-							"guid": "555f35fe-b19b-44a0-82f8-d9c8c3d09bbf",
+							"guid": "1b6a16a3-d31f-47d6-8157-51860646d5b5",
 							"id": "668",
 							"shortDescription": {
 								"text": "The product exposes a resource to the wrong control sphere, providing unintended actors with inappropriate access to the resource."

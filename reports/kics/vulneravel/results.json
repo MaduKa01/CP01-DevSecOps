@@ -20,8 +20,8 @@
 	},
 	"total_counter": 9,
 	"total_bom_resources": 0,
-	"start": "2026-09-25T17:20:50.640252262Z",
-	"end": "2026-09-25T17:20:51.602724346Z",
+	"start": "2026-09-26T03:40:52.616345334Z",
+	"end": "2026-09-26T03:40:53.563537084Z",
 	"paths": [
 		"/workspace/vulneravel/deployment.yaml"
 	],

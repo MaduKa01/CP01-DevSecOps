@@ -147,7 +147,7 @@ SonarQube e Nuclei são demonstrados com as evidências de `reports/`; sua insta
 faz parte dos pré-requisitos dos colegas para este lab. Comandos complementares estão no README.
 
 O vídeo deve mostrar a execução completa, leitura dos achados, correções e CI vermelho/verde
-em 5–8 minutos. A validação por Cauê em outra máquina e a gravação ainda devem ser realizadas.
+em 5–8 minutos. A validação por Cauê em outra máquina foi concluída e está em `evidencias/validacao-kaue.md`. A gravação e o ensaio humano cronometrado ainda devem ser realizados.
 
 Fontes dos comandos e formatos: [Trivy CLI](https://www.trivy.dev/docs/latest/guide/references/configuration/cli/trivy_filesystem/),
 [Trivy convert](https://trivy.dev/docs/latest/references/configuration/cli/trivy_convert/),

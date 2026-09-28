@@ -1,6 +1,6 @@
 {
   "variant": "vulneravel",
-  "started_at": "2026-09-25T17:20:48.506838+00:00",
+  "started_at": "2026-09-26T03:40:50.562232+00:00",
   "steps": {
     "trivy_scan": {
       "command": [
@@ -25,7 +25,7 @@
         "/workspace/vulneravel/requirements.txt"
       ],
       "exit_code": 0,
-      "seconds": 0.587
+      "seconds": 0.423
     },
     "trivy_sarif": {
       "command": [
@@ -43,7 +43,7 @@
         "/reports/trivy/vulneravel/results.json"
       ],
       "exit_code": 0,
-      "seconds": 0.306
+      "seconds": 0.297
     },
     "trivy_cyclonedx": {
       "command": [
@@ -61,7 +61,7 @@
         "/reports/trivy/vulneravel/results.json"
       ],
       "exit_code": 0,
-      "seconds": 0.3
+      "seconds": 0.341
     },
     "trivy_gate": {
       "command": [
@@ -79,7 +79,7 @@
         "/reports/trivy/vulneravel/results.json"
       ],
       "exit_code": 0,
-      "seconds": 0.281
+      "seconds": 0.3
     },
     "kics_scan": {
       "command": [
@@ -104,7 +104,7 @@
         "--no-color"
       ],
       "exit_code": 50,
-      "seconds": 1.77
+      "seconds": 1.783
     }
   },
   "errors": [],
@@ -134,5 +134,5 @@
     "fixtures/vulneravel/deployment.yaml": "3e57afa9ba08a6291afb19650012f808e972ab0f0e1417de1edc25ab0c45fd40",
     "fixtures/vulneravel/requirements.txt": "062dcb76b26c2591ba655a896855d77db8340c95b08357e23344606ddd9edbfa"
   },
-  "finished_at": "2026-09-25T17:20:51.753990+00:00"
+  "finished_at": "2026-09-26T03:40:53.707566+00:00"
 }

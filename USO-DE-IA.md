@@ -103,7 +103,10 @@ Esses arquivos devem ser identificados pela data de geração. Na conferência d
 1. O `trivy_created_at` do cenário vulnerável foi `2026-09-28T20:02:05.070654835Z`. A versão indicada para corrigir `CVE-2025-27516` foi Jinja2 3.1.6.
 2. O `kics_started_at` do cenário corrigido foi `2026-09-28T20:05:06.738325961Z`. Restaram zero HIGH. As duas propriedades que removeram os HIGH foram `privileged: false` e `allowPrivilegeEscalation: false`.
 
-## Escopo e responsabilidade sobre as evidências
+As execuções efetivamente concluídas são registradas em `evidencias/` e `reports/`.
+Rascunhos e previsões não equivalem a resultados executados.
+Os integrantes devem revisar código, referências, achados e falas antes da entrega.
+As execuções de Cauê e Ronaldo estão documentadas em seus relatos. A revisão editorial de Edmar, a montagem/conferência dos slides por Pedro e o ensaio do grupo permanecem pendentes até que cada responsável os realize.
 
 A execução manual de 28/09/2026 comprova a reprodução das etapas técnicas do laboratório principal Trivy/KICS até a geração do comprovante. Ela não é apresentada como nova execução de SonarQube, Nuclei ou GitHub Actions, nem como prova de edição manual das correções durante essa sessão.
 
@@ -111,4 +114,10 @@ Os resultados médios do Trivy não são bloqueantes pela política HIGH/CRITICA
 
 A evidência apresentada não mede um ensaio completo com explicação dos resultados. A revisão editorial por Edmar, a conferência dos slides por PEDRO GONÇALVES, a gravação e o ensaio do grupo devem ter seu estado registrado pelos respectivos responsáveis; esta atualização não presume sua conclusão nem os declara pendentes apenas por ausência de informação nova.
 
-As contribuições humanas e a assistência de IA devem ser descritas conforme os registros disponíveis. Rascunhos, previsões e arquivos históricos não substituem evidências de novas execuções.
+Estas execuções foram automatizadas com assistência de Codex. A revisão e o ensaio humanos continuam necessários e não são declarados como já realizados.
+
+## Consolidação em 26/09/2026
+
+Ronaldo forneceu o output de sua execução pessoal no Mac. Codex conferiu os relatórios, diagnosticou a espera do Nuclei, ajustou a configuração de templates públicos e acrescentou mensagens de progresso. Os testes diagnósticos foram separados da execução pessoal.
+
+Codex preparou os guias de documentação e de 28 slides, consolidou o relato Mac e atualizou o estado das validações Windows/Mac. Apenas espaços finais foram removidos dos logs modificados; a transcrição pessoal recebeu anonimização do nome do computador. Os dados e limites foram preservados. Os guias são apoio para os responsáveis, não autoria atribuída a Edmar ou Pedro nem entrega final deles.

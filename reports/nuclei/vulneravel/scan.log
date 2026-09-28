@@ -1,5 +1,5 @@
- Container cp01-devsecops-nuclei-run-a4ce009bb319 Creating 
- Container cp01-devsecops-nuclei-run-a4ce009bb319 Created 
+ Container cp01-devsecops-nuclei-run-5b8bf8bcdb24 Creating
+ Container cp01-devsecops-nuclei-run-5b8bf8bcdb24 Created
 
                      __     _
    ____  __  _______/ /__  (_)
@@ -16,6 +16,6 @@
 [INF] Targets loaded for current scan: 1
 [cp01-debug-exposure] [http] [medium] http://app-vulneravel:8080/debug
 [0:00:00] | Templates: 1 | Hosts: 1 | RPS: 3 | Matched: 1 | Errors: 0 | Requests: 1/1 (100%)
-[INF] Scan completed in 258.748125ms. 1 matches found.
+[INF] Scan completed in 280.372042ms. 1 matches found.
 [INF] HTTP connections: 1 total, 1 new, 0 reused (0.0%)
 [0:00:00] | Templates: 1 | Hosts: 1 | RPS: 3 | Matched: 1 | Errors: 0 | Requests: 1/1 (100%)
